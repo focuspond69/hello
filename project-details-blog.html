@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Platform - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Project Header -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Blog Platform</h1>
+                        <p class="text-gray-600">Build a modern blog platform with content management, user authentication, and social features.</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Intermediate
+                        </span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-1 text-sm text-gray-600">4.6 (85)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>Estimated Time: 12 hours</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-code mr-2"></i>
+                        <span>Technologies: React, Node.js, MongoDB, Express</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user mr-2"></i>
+                        <span>By Sarah Johnson</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Project Overview -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Overview</h2>
+                        <p class="text-gray-600 mb-6">
+                            Create a full-featured blog platform that allows users to create, edit, and share blog posts. The platform will include features for content management, user authentication, comments, and social sharing.
+                        </p>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Key Features:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>User authentication and profile management</li>
+                                <li>Rich text editor for blog posts</li>
+                                <li>Comment system with moderation</li>
+                                <li>Social sharing integration</li>
+                                <li>Category and tag management</li>
+                                <li>Search functionality</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Project Requirements -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Requirements</h2>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Prerequisites:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Intermediate knowledge of React and state management</li>
+                                <li>Experience with Node.js and Express</li>
+                                <li>Understanding of MongoDB and Mongoose</li>
+                                <li>Familiarity with REST APIs</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Implementation Steps -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation Steps</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Backend API Implementation</h3>
+                                <p class="text-gray-600 mb-4">Create the Node.js backend with Express and MongoDB.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="server-code" class="w-full h-40 text-white bg-transparent">
+const express = require('express');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const app = express();
+app.use(express.json());
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost/blog_platform', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+// User Schema
+const userSchema = new mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    bio: String,
+    avatar: String
+});
+
+const User = mongoose.model('User', userSchema);
+
+// Blog Post Schema
+const postSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    content: { type: String, required: true },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    tags: [String],
+    category: String,
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+});
+
+const Post = mongoose.model('Post', postSchema);
+
+// Authentication Routes
+app.post('/api/auth/register', async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = new User({ username, email, password: hashedPassword });
+        await user.save();
+        res.status(201).json({ message: 'User created successfully' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Blog Post Routes
+app.post('/api/posts', async (req, res) => {
+    try {
+        const post = new Post(req.body);
+        await post.save();
+        res.status(201).json(post);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">2. Frontend Implementation</h3>
+                                <p class="text-gray-600 mb-4">Create the React frontend for the blog platform.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="html-code" class="w-full h-40 text-white bg-transparent">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog Post</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blog-container">
+        <h1 id="post-title"></h1>
+        <p id="post-content"></p>
+        <div class="post-meta">
+            <span id="post-author"></span>
+            <span id="post-date"></span>
+        </div>
+        
+        <form id="comment-form">
+            <textarea id="comment" placeholder="Add a comment..."></textarea>
+            <button type="submit">Submit Comment</button>
+        </form>
+        <div id="comments-list"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">2. JavaScript Implementation</h3>
+                                <p class="text-gray-600 mb-4">Implement the core functionality using JavaScript.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="js-code" class="w-full h-40 text-white bg-transparent">
+// Example JavaScript for a simple blog post display and comment submission
+document.addEventListener('DOMContentLoaded', () => {
+    // Simulate fetching blog post data
+    const blogPost = {
+        title: "My First Blog Post",
+        content: "This is the content of my first blog post. It's about learning web development.",
+        author: "Jane Doe",
+        date: "2023-10-26"
+    };
+
+    const postTitleElement = document.getElementById('post-title');
+    const postContentElement = document.getElementById('post-content');
+    const postAuthorElement = document.getElementById('post-author');
+    const postDateElement = document.getElementById('post-date');
+
+    if (postTitleElement) postTitleElement.textContent = blogPost.title;
+    if (postContentElement) postContentElement.textContent = blogPost.content;
+    if (postAuthorElement) postAuthorElement.textContent = `Author: ${blogPost.author}`;
+    if (postDateElement) postDateElement.textContent = `Date: ${new Date(blogPost.date).toLocaleDateString()}`;
+
+    // Handle comment submission
+    const commentForm = document.getElementById('comment-form');
+    if (commentForm) {
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const commentTextarea = document.getElementById('comment');
+            const commentText = commentTextarea.value.trim();
+
+            if (commentText) {
+                const commentsList = document.getElementById('comments-list');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `
+                    <p>${commentText}</p>
+                    <small>Anonymous - ${new Date().toLocaleDateString()}</small>
+                `;
+                commentsList.appendChild(newComment);
+                commentTextarea.value = ''; // Clear the textarea
+                alert('Comment submitted successfully!');
+            } else {
+                alert('Please enter a comment.');
+            }
+        });
+    }
+});
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+                    <section class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
+                        <div class="space-y-6">
+                            <!-- Comment Form -->
+                            <form id="comment-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Rate this project</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" class="rating-btn" data-rating="1"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="2"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="3"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="4"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="5"><i class="far fa-star"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">Your Comment</label>
+                                    <textarea id="comment" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Submit Comment
+                                </button>
+                            </form>
+
+                            <!-- Existing Comments -->
+                            <div class="space-y-4">
+                                <div class="border-t border-gray-200 pt-4">
+                                    <div class="flex items-center mb-2">
+                                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Michael Chen</h4>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <span class="ml-1">4.6</span>
+                                                <span class="mx-2">•</span>
+                                                <span>1 week ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Great project for learning full-stack development. The rich text editor implementation is particularly well done.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Try Online -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Try Online</h3>
+                        <p class="text-gray-600 mb-4">Test this project in our online code editor.</p>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Open in Editor
+                        </button>
+                    </section>
+
+                    <!-- Resources -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Resources</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-file-pdf mr-2"></i>
+                                    Project Documentation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Source Code
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Video Tutorial
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Related Projects -->
+                    <section class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Related Projects</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Content Management System</h4>
+                                <p class="text-sm text-gray-600">Build a CMS for managing website content</p>
+                            </a>
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Social Media Platform</h4>
+                                <p class="text-sm text-gray-600">Create a social media platform with user interactions</p>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Return to Projects Button -->
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold shadow-md">
+                    <i class="fas fa-arrow-left mr-3"></i>Return to Projects
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize CodeMirror
+        const serverEditor = CodeMirror.fromTextArea(document.getElementById('server-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+
+        const reactEditor = CodeMirror.fromTextArea(document.getElementById('js-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+    </script>
+</body>
+</html>

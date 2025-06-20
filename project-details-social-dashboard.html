@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Project Header -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Social Media Dashboard</h1>
+                        <p class="text-gray-600">Create a comprehensive social media dashboard with analytics, post scheduling, and engagement tracking.</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Intermediate
+                        </span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-1 text-sm text-gray-600">4.7 (55)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>Estimated Time: 9 hours</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-code mr-2"></i>
+                        <span>Technologies: HTML, CSS, JavaScript, Chart.js, Firebase</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user mr-2"></i>
+                        <span>By David Wilson</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Project Overview -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Overview</h2>
+                        <p class="text-gray-600 mb-6">
+                            Build a powerful social media dashboard that helps users manage multiple social media accounts, track engagement metrics, and schedule posts. The application will provide insights and analytics to optimize social media presence.
+                        </p>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Key Features:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Multi-platform social media integration</li>
+                                <li>Post scheduling and management</li>
+                                <li>Engagement analytics and reporting</li>
+                                <li>Content calendar visualization</li>
+                                <li>Audience insights and demographics</li>
+                                <li>Performance tracking and metrics</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Project Requirements -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Requirements</h2>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Prerequisites:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Advanced JavaScript knowledge</li>
+                                <li>Understanding of REST APIs</li>
+                                <li>Experience with Firebase or similar backend services</li>
+                                <li>Knowledge of data visualization libraries</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Implementation Steps -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation Steps</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Project Setup</h3>
+                                <p class="text-gray-600 mb-4">Set up the basic structure and include necessary libraries.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="html-code" class="w-full h-40 text-white bg-transparent">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="logo">SocialDash</div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#posts">Posts</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <h1>Dashboard Overview</h1>
+                <div class="user-info">
+                    <img src="avatar.jpg" alt="User" class="avatar">
+                    <span>John Doe</span>
+                </div>
+            </header>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Followers</h3>
+                    <p class="stat-value">24.5K</p>
+                    <p class="stat-change positive">+12%</p>
+                </div>
+                <!-- More stat cards -->
+            </div>
+            <div class="charts-container">
+                <canvas id="engagement-chart"></canvas>
+                <canvas id="audience-chart"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">2. JavaScript Implementation</h3>
+                                <p class="text-gray-600 mb-4">Implement the core functionality for the dashboard.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="js-code" class="w-full h-40 text-white bg-transparent">
+// Firebase configuration
+const firebaseConfig = {
+    // Your Firebase config here
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+class SocialDashboard {
+    constructor() {
+        this.initializeCharts();
+        this.loadData();
+        this.setupEventListeners();
+    }
+
+    async loadData() {
+        try {
+            const snapshot = await db.collection('social-stats').get();
+            const data = snapshot.docs.map(doc => doc.data());
+            this.updateDashboard(data);
+        } catch (error) {
+            console.error('Error loading data:', error);
+        }
+    }
+
+    initializeCharts() {
+        // Engagement Chart
+        const engagementCtx = document.getElementById('engagement-chart').getContext('2d');
+        this.engagementChart = new Chart(engagementCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Engagement',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    borderColor: '#4CAF50',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // Audience Chart
+        const audienceCtx = document.getElementById('audience-chart').getContext('2d');
+        this.audienceChart = new Chart(audienceCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Facebook', 'Twitter', 'Instagram', 'LinkedIn'],
+                datasets: [{
+                    data: [30, 25, 25, 20],
+                    backgroundColor: [
+                        '#4267B2',
+                        '#1DA1F2',
+                        '#E1306C',
+                        '#0077B5'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    }
+
+    updateDashboard(data) {
+        // Update statistics
+        document.querySelector('.stat-value').textContent = this.formatNumber(data.totalFollowers);
+        document.querySelector('.stat-change').textContent = `+${data.growthRate}%`;
+
+        // Update charts
+        this.engagementChart.data.datasets[0].data = data.engagementData;
+        this.engagementChart.update();
+
+        this.audienceChart.data.datasets[0].data = data.platformDistribution;
+        this.audienceChart.update();
+    }
+
+    formatNumber(num) {
+        return new Intl.NumberFormat('en-US', {
+            notation: 'compact',
+            maximumFractionDigits: 1
+        }).format(num);
+    }
+
+    setupEventListeners() {
+        // Add event listeners for interactive features
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleNavigation(e.target.getAttribute('href').substring(1));
+            });
+        });
+    }
+
+    handleNavigation(section) {
+        // Handle navigation between dashboard sections
+        document.querySelectorAll('.content > div').forEach(div => {
+            div.style.display = 'none';
+        });
+        document.getElementById(section).style.display = 'block';
+    }
+}
+
+// Initialize dashboard
+const dashboard = new SocialDashboard();
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+                    <section class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
+                        <div class="space-y-6">
+                            <!-- Comment Form -->
+                            <form id="comment-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Rate this project</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" class="rating-btn" data-rating="1"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="2"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="3"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="4"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="5"><i class="far fa-star"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">Your Comment</label>
+                                    <textarea id="comment" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Submit Comment
+                                </button>
+                            </form>
+
+                            <!-- Existing Comments -->
+                            <div class="space-y-4">
+                                <div class="border-t border-gray-200 pt-4">
+                                    <div class="flex items-center mb-2">
+                                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Emily Brown</h4>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <span class="ml-1">4.7</span>
+                                                <span class="mx-2">•</span>
+                                                <span>3 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">The Firebase integration and real-time updates make this dashboard incredibly powerful. Great learning experience!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Try Online -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Try Online</h3>
+                        <p class="text-gray-600 mb-4">Test this project in our online code editor.</p>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Open in Editor
+                        </button>
+                    </section>
+
+                    <!-- Resources -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Resources</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-file-pdf mr-2"></i>
+                                    Project Documentation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Source Code
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Video Tutorial
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Related Projects -->
+                    <section class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Related Projects</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Analytics Dashboard</h4>
+                                <p class="text-sm text-gray-600">Create a data visualization dashboard</p>
+                            </a>
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Content Calendar</h4>
+                                <p class="text-sm text-gray-600">Build a content planning and scheduling tool</p>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Return to Projects Button -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <a href="projects.html" class="inline-block bg-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-lg font-semibold shadow-md w-full">
+                            <i class="fas fa-arrow-left mr-3"></i>Return to Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize CodeMirror
+        const htmlEditor = CodeMirror.fromTextArea(document.getElementById('html-code'), {
+            mode: 'htmlmixed',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+
+        const jsEditor = CodeMirror.fromTextArea(document.getElementById('js-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+    </script>
+</body>
+</html> 

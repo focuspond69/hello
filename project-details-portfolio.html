@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Project Header -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Personal Portfolio Website</h1>
+                        <p class="text-gray-600">Create a professional portfolio website to showcase your skills, projects, and experience.</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Beginner
+                        </span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-1 text-sm text-gray-600">4.5 (120)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>Estimated Time: 2 hours</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-code mr-2"></i>
+                        <span>Technologies: HTML, CSS, JavaScript</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user mr-2"></i>
+                        <span>By John Doe</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Project Overview -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Overview</h2>
+                        <p class="text-gray-600 mb-6">
+                            Build a modern and responsive personal portfolio website to showcase your professional journey, skills, and projects. This project will help you practice HTML, CSS, and JavaScript while creating something practical for your career.
+                        </p>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Key Features:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Responsive design for all devices</li>
+                                <li>About me section with professional summary</li>
+                                <li>Skills showcase with progress bars</li>
+                                <li>Project gallery with filtering</li>
+                                <li>Contact form with validation</li>
+                                <li>Smooth scrolling and animations</li>
+                                <li>Dark/Light mode toggle</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Project Requirements -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Requirements</h2>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Prerequisites:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Basic knowledge of HTML and CSS</li>
+                                <li>Understanding of JavaScript fundamentals</li>
+                                <li>Familiarity with responsive design principles</li>
+                                <li>Basic understanding of form validation</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Implementation Steps -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation Steps</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">1. HTML Structure</h3>
+                                <p class="text-gray-600 mb-4">Create the basic structure of the portfolio website.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="html-code" class="w-full h-40 text-white bg-transparent">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">John Doe</span></h1>
+            <p>Web Developer & Designer</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a passionate web developer with experience in creating modern and responsive websites.</p>
+            </div>
+            <div class="about-image">
+                <img src="profile.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%"></div>
+                </div>
+            </div>
+            <!-- Add more skill cards -->
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="mobile">Mobile</button>
+        </div>
+        <div class="project-grid">
+            <!-- Project cards will be added dynamically -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 John Doe. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">2. JavaScript Implementation</h3>
+                                <p class="text-gray-600 mb-4">Add interactivity and dynamic features to the portfolio.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="js-code" class="w-full h-40 text-white bg-transparent">
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    const icon = themeToggle.querySelector('i');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+});
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Project Filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectGrid = document.querySelector('.project-grid');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        filterProjects(filter);
+    });
+});
+
+function filterProjects(filter) {
+    const projects = document.querySelectorAll('.project-card');
+    projects.forEach(project => {
+        if (filter === 'all' || project.dataset.category === filter) {
+            project.style.display = 'block';
+        } else {
+            project.style.display = 'none';
+        }
+    });
+}
+
+// Form Validation
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    if (validateForm(name, email, message)) {
+        // Send form data
+        console.log('Form submitted:', { name, email, message });
+        contactForm.reset();
+        showNotification('Message sent successfully!');
+    }
+});
+
+function validateForm(name, email, message) {
+    if (!name || !email || !message) {
+        showNotification('Please fill in all fields', 'error');
+        return false;
+    }
+    
+    if (!isValidEmail(email)) {
+        showNotification('Please enter a valid email address', 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Animate on Scroll
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate');
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        
+        if (elementTop < window.innerHeight && elementBottom > 0) {
+            element.classList.add('visible');
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+                    <section class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
+                        <div class="space-y-6">
+                            <!-- Comment Form -->
+                            <form id="comment-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Rate this project</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" class="rating-btn" data-rating="1"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="2"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="3"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="4"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="5"><i class="far fa-star"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">Your Comment</label>
+                                    <textarea id="comment" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Submit Comment
+                                </button>
+                            </form>
+
+                            <!-- Existing Comments -->
+                            <div class="space-y-4">
+                                <div class="border-t border-gray-200 pt-4">
+                                    <div class="flex items-center mb-2">
+                                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <span class="ml-1">4.5</span>
+                                                <span class="mx-2">•</span>
+                                                <span>2 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Great project for beginners! The dark mode toggle and smooth scrolling features are really nice touches.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Try Online -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Try Online</h3>
+                        <p class="text-gray-600 mb-4">Test this project in our online code editor.</p>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Open in Editor
+                        </button>
+                    </section>
+
+                    <!-- Resources -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Resources</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-file-pdf mr-2"></i>
+                                    Project Documentation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Source Code
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Video Tutorial
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Related Projects -->
+                    <section class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Related Projects</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Business Portfolio</h4>
+                                <p class="text-sm text-gray-600">Professional portfolio for businesses and agencies</p>
+                            </a>
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Photography Portfolio</h4>
+                                <p class="text-sm text-gray-600">Showcase your photography work with style</p>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Return to Projects Button -->
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold shadow-md">
+                    <i class="fas fa-arrow-left mr-3"></i>Return to Projects
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize CodeMirror
+        const htmlEditor = CodeMirror.fromTextArea(document.getElementById('html-code'), {
+            mode: 'htmlmixed',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+
+        const jsEditor = CodeMirror.fromTextArea(document.getElementById('js-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+    </script>
+</body>
+</html> 

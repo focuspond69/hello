@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Project Header -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Weather Application</h1>
+                        <p class="text-gray-600">Build a modern weather application that provides real-time weather information, forecasts, and interactive maps.</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Beginner
+                        </span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-1 text-sm text-gray-600">4.8 (120)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>Estimated Time: 6 hours</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-code mr-2"></i>
+                        <span>Technologies: HTML, CSS, JavaScript, OpenWeather API</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user mr-2"></i>
+                        <span>By Sarah Chen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Project Overview -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Overview</h2>
+                        <p class="text-gray-600 mb-6">
+                            Create a weather application that provides users with accurate weather information for any location. The application will include current weather conditions, hourly and daily forecasts, and interactive weather maps.
+                        </p>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Key Features:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Real-time weather data</li>
+                                <li>5-day weather forecast</li>
+                                <li>Location-based weather information</li>
+                                <li>Interactive weather maps</li>
+                                <li>Weather alerts and notifications</li>
+                                <li>Responsive design for all devices</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Project Requirements -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Requirements</h2>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Prerequisites:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Basic knowledge of HTML, CSS, and JavaScript</li>
+                                <li>Understanding of API integration</li>
+                                <li>Familiarity with async/await and promises</li>
+                                <li>Experience with responsive design</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Implementation Steps -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation Steps</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">1. API Integration</h3>
+                                <p class="text-gray-600 mb-4">Set up the OpenWeather API integration to fetch weather data.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="api-code" class="w-full h-40 text-white bg-transparent">
+const API_KEY = 'your_api_key';
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+
+async function getWeatherData(city) {
+    try {
+        const response = await fetch(
+            `${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`
+        );
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        throw error;
+    }
+}
+
+async function getForecast(city) {
+    try {
+        const response = await fetch(
+            `${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`
+        );
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching forecast:', error);
+        throw error;
+    }
+}
+
+export { getWeatherData, getForecast };
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">2. Frontend Implementation</h3>
+                                <p class="text-gray-600 mb-4">Create the user interface for displaying weather information.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="frontend-code" class="w-full h-40 text-white bg-transparent">
+class WeatherApp {
+    constructor() {
+        this.searchInput = document.getElementById('search-input');
+        this.searchButton = document.getElementById('search-button');
+        this.weatherContainer = document.getElementById('weather-container');
+        this.forecastContainer = document.getElementById('forecast-container');
+        
+        this.searchButton.addEventListener('click', () => this.searchWeather());
+    }
+
+    async searchWeather() {
+        const city = this.searchInput.value;
+        if (!city) return;
+
+        try {
+            const weatherData = await getWeatherData(city);
+            const forecastData = await getForecast(city);
+            
+            this.displayCurrentWeather(weatherData);
+            this.displayForecast(forecastData);
+        } catch (error) {
+            this.showError('Failed to fetch weather data');
+        }
+    }
+
+    displayCurrentWeather(data) {
+        const { main, weather, wind } = data;
+        const weatherHTML = `
+            <div class="weather-card">
+                <h2>${data.name}</h2>
+                <div class="temperature">${Math.round(main.temp)}°C</div>
+                <div class="weather-description">${weather[0].description}</div>
+                <div class="weather-details">
+                    <p>Humidity: ${main.humidity}%</p>
+                    <p>Wind Speed: ${wind.speed} m/s</p>
+                </div>
+            </div>
+        `;
+        this.weatherContainer.innerHTML = weatherHTML;
+    }
+
+    displayForecast(data) {
+        const forecastHTML = data.list
+            .filter(item => item.dt_txt.includes('12:00:00'))
+            .map(item => `
+                <div class="forecast-card">
+                    <div class="date">${new Date(item.dt * 1000).toLocaleDateString()}</div>
+                    <div class="temperature">${Math.round(item.main.temp)}°C</div>
+                    <div class="weather-description">${item.weather[0].description}</div>
+                </div>
+            `)
+            .join('');
+        this.forecastContainer.innerHTML = forecastHTML;
+    }
+
+    showError(message) {
+        this.weatherContainer.innerHTML = `<div class="error">${message}</div>`;
+        this.forecastContainer.innerHTML = '';
+    }
+}
+
+const app = new WeatherApp();
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+                    <section class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
+                        <div class="space-y-6">
+                            <!-- Comment Form -->
+                            <form id="comment-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Rate this project</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" class="rating-btn" data-rating="1"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="2"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="3"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="4"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="5"><i class="far fa-star"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">Your Comment</label>
+                                    <textarea id="comment" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Submit Comment
+                                </button>
+                            </form>
+
+                            <!-- Existing Comments -->
+                            <div class="space-y-4">
+                                <div class="border-t border-gray-200 pt-4">
+                                    <div class="flex items-center mb-2">
+                                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">John Smith</h4>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <span class="ml-1">4.8</span>
+                                                <span class="mx-2">•</span>
+                                                <span>2 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Great project for learning API integration! The weather maps feature is particularly impressive.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Try Online -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Try Online</h3>
+                        <p class="text-gray-600 mb-4">Test this project in our online code editor.</p>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Open in Editor
+                        </button>
+                    </section>
+
+                    <!-- Resources -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Resources</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-file-pdf mr-2"></i>
+                                    Project Documentation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Source Code
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Video Tutorial
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Related Projects -->
+                    <section class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Related Projects</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Weather Dashboard</h4>
+                                <p class="text-sm text-gray-600">Create a dashboard for weather monitoring</p>
+                            </a>
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Climate Data Visualization</h4>
+                                <p class="text-sm text-gray-600">Visualize climate data using charts and graphs</p>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Return to Projects Button -->
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold shadow-md">
+                    <i class="fas fa-arrow-left mr-3"></i>Return to Projects
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize CodeMirror
+        const apiEditor = CodeMirror.fromTextArea(document.getElementById('api-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+
+        const frontendEditor = CodeMirror.fromTextArea(document.getElementById('frontend-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+    </script>
+</body>
+</html> 

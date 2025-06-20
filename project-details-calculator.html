@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Project Header -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Simple Calculator</h1>
+                        <p class="text-gray-600">Create a basic calculator with HTML, CSS, and JavaScript. Practice DOM manipulation and event handling.</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Beginner
+                        </span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-1 text-sm text-gray-600">4.2 (85)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        <span>Estimated Time: 1.5 hours</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-code mr-2"></i>
+                        <span>Technologies: HTML, CSS, JavaScript</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user mr-2"></i>
+                        <span>By John Doe</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Project Overview -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Overview</h2>
+                        <p class="text-gray-600 mb-6">
+                            Build a simple calculator that can perform basic arithmetic operations. This project will help you understand DOM manipulation, event handling, and basic JavaScript operations.
+                        </p>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Key Features:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Basic arithmetic operations (addition, subtraction, multiplication, division)</li>
+                                <li>Clear and delete functionality</li>
+                                <li>Decimal point support</li>
+                                <li>Keyboard input support</li>
+                                <li>Responsive design</li>
+                                <li>Error handling for invalid operations</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Project Requirements -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Project Requirements</h2>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900">Prerequisites:</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Basic knowledge of HTML and CSS</li>
+                                <li>Understanding of JavaScript fundamentals</li>
+                                <li>Familiarity with DOM manipulation</li>
+                                <li>Basic understanding of event handling</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Implementation Steps -->
+                    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation Steps</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">1. HTML Structure</h3>
+                                <p class="text-gray-600 mb-4">Create the calculator interface using HTML.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="html-code" class="w-full h-40 text-white bg-transparent">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="result" readonly>
+        </div>
+        <div class="buttons">
+            <button class="operator" data-action="clear">C</button>
+            <button class="operator" data-action="delete">⌫</button>
+            <button class="operator" data-action="percent">%</button>
+            <button class="operator" data-action="divide">÷</button>
+            
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="operator" data-action="multiply">×</button>
+            
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operator" data-action="subtract">-</button>
+            
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operator" data-action="add">+</button>
+            
+            <button class="number">0</button>
+            <button class="number">.</button>
+            <button class="operator" data-action="equals">=</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">2. JavaScript Implementation</h3>
+                                <p class="text-gray-600 mb-4">Implement the calculator functionality using JavaScript.</p>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <textarea id="js-code" class="w-full h-40 text-white bg-transparent">
+class Calculator {
+    constructor() {
+        this.result = document.getElementById('result');
+        this.currentValue = '0';
+        this.previousValue = null;
+        this.operation = null;
+        this.shouldResetDisplay = false;
+
+        this.initializeEventListeners();
+    }
+
+    initializeEventListeners() {
+        document.querySelectorAll('.number').forEach(button => {
+            button.addEventListener('click', () => this.handleNumber(button.textContent));
+        });
+
+        document.querySelectorAll('.operator').forEach(button => {
+            button.addEventListener('click', () => this.handleOperator(button.dataset.action));
+        });
+
+        document.addEventListener('keydown', (e) => this.handleKeyboardInput(e));
+    }
+
+    handleNumber(number) {
+        if (this.shouldResetDisplay) {
+            this.currentValue = number;
+            this.shouldResetDisplay = false;
+        } else {
+            this.currentValue = this.currentValue === '0' ? number : this.currentValue + number;
+        }
+        this.updateDisplay();
+    }
+
+    handleOperator(action) {
+        switch (action) {
+            case 'clear':
+                this.clear();
+                break;
+            case 'delete':
+                this.delete();
+                break;
+            case 'equals':
+                this.calculate();
+                break;
+            default:
+                this.setOperation(action);
+        }
+    }
+
+    setOperation(operation) {
+        if (this.previousValue !== null) {
+            this.calculate();
+        }
+        this.previousValue = parseFloat(this.currentValue);
+        this.operation = operation;
+        this.shouldResetDisplay = true;
+    }
+
+    calculate() {
+        if (this.previousValue === null || this.operation === null) return;
+
+        const current = parseFloat(this.currentValue);
+        let result;
+
+        switch (this.operation) {
+            case 'add':
+                result = this.previousValue + current;
+                break;
+            case 'subtract':
+                result = this.previousValue - current;
+                break;
+            case 'multiply':
+                result = this.previousValue * current;
+                break;
+            case 'divide':
+                if (current === 0) {
+                    this.currentValue = 'Error';
+                    this.updateDisplay();
+                    return;
+                }
+                result = this.previousValue / current;
+                break;
+            case 'percent':
+                result = this.previousValue * (current / 100);
+                break;
+        }
+
+        this.currentValue = result.toString();
+        this.previousValue = null;
+        this.operation = null;
+        this.shouldResetDisplay = true;
+        this.updateDisplay();
+    }
+
+    clear() {
+        this.currentValue = '0';
+        this.previousValue = null;
+        this.operation = null;
+        this.shouldResetDisplay = false;
+        this.updateDisplay();
+    }
+
+    delete() {
+        if (this.currentValue.length > 1) {
+            this.currentValue = this.currentValue.slice(0, -1);
+        } else {
+            this.currentValue = '0';
+        }
+        this.updateDisplay();
+    }
+
+    updateDisplay() {
+        this.result.value = this.currentValue;
+    }
+
+    handleKeyboardInput(e) {
+        if (e.key >= '0' && e.key <= '9' || e.key === '.') {
+            this.handleNumber(e.key);
+        } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+            const operationMap = {
+                '+': 'add',
+                '-': 'subtract',
+                '*': 'multiply',
+                '/': 'divide'
+            };
+            this.handleOperator(operationMap[e.key]);
+        } else if (e.key === 'Enter' || e.key === '=') {
+            this.handleOperator('equals');
+        } else if (e.key === 'Escape') {
+            this.handleOperator('clear');
+        } else if (e.key === 'Backspace') {
+            this.handleOperator('delete');
+        }
+    }
+}
+
+const calculator = new Calculator();
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+                    <section class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Comments</h2>
+                        <div class="space-y-6">
+                            <!-- Comment Form -->
+                            <form id="comment-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Rate this project</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" class="rating-btn" data-rating="1"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="2"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="3"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="4"><i class="far fa-star"></i></button>
+                                        <button type="button" class="rating-btn" data-rating="5"><i class="far fa-star"></i></button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">Your Comment</label>
+                                    <textarea id="comment" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Submit Comment
+                                </button>
+                            </form>
+
+                            <!-- Existing Comments -->
+                            <div class="space-y-4">
+                                <div class="border-t border-gray-200 pt-4">
+                                    <div class="flex items-center mb-2">
+                                        <img src="https://via.placeholder.com/40" alt="User" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">David Wilson</h4>
+                                            <div class="flex items-center text-sm text-gray-500">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <span class="ml-1">4.2</span>
+                                                <span class="mx-2">•</span>
+                                                <span>3 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Great project for learning JavaScript basics! The keyboard input handling is a nice touch.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Try Online -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Try Online</h3>
+                        <p class="text-gray-600 mb-4">Test this project in our online code editor.</p>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            Open in Editor
+                        </button>
+                    </section>
+
+                    <!-- Resources -->
+                    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Resources</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-file-pdf mr-2"></i>
+                                    Project Documentation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Source Code
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <i class="fas fa-video mr-2"></i>
+                                    Video Tutorial
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Related Projects -->
+                    <section class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Related Projects</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Scientific Calculator</h4>
+                                <p class="text-sm text-gray-600">Advanced calculator with scientific functions</p>
+                            </a>
+                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors">
+                                <h4 class="font-semibold text-gray-900">Unit Converter</h4>
+                                <p class="text-sm text-gray-600">Convert between different units of measurement</p>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Return to Projects Button -->
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-block bg-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-300 text-lg font-semibold shadow-md">
+                    <i class="fas fa-arrow-left mr-3"></i>Return to Projects
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize CodeMirror
+        const htmlEditor = CodeMirror.fromTextArea(document.getElementById('html-code'), {
+            mode: 'htmlmixed',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+
+        const jsEditor = CodeMirror.fromTextArea(document.getElementById('js-code'), {
+            mode: 'javascript',
+            theme: 'monokai',
+            readOnly: true,
+            lineNumbers: true
+        });
+    </script>
+</body>
+</html> 

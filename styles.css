@@ -1,0 +1,1185 @@
+/* Custom styles to complement Tailwind CSS */
+
+html,
+body {
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scroll due to potential overflow */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sidebar overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Carousel styles */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+}
+
+.carousel-control {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#carousel:hover .carousel-control {
+    opacity: 1;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Accessibility focus styles */
+:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none;
+    }
+}
+
+/* Loading animation */
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom button styles */
+.btn-primary {
+    @apply bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors;
+}
+
+.btn-secondary {
+    @apply border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-colors;
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Custom form styles */
+.form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500;
+}
+
+.form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+/* Custom alert styles */
+.alert {
+    @apply p-4 rounded-lg mb-4;
+}
+
+.alert-success {
+    @apply bg-green-100 text-green-700 border border-green-200;
+}
+
+.alert-error {
+    @apply bg-red-100 text-red-700 border border-red-200;
+}
+
+.alert-warning {
+    @apply bg-yellow-100 text-yellow-700 border border-yellow-200;
+}
+
+.alert-info {
+    @apply bg-blue-100 text-blue-700 border border-blue-200;
+}
+
+/* Filter Panel Specific Styles */
+#filter-panel {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end; /* Pushes the panel content to the right */
+    align-items: flex-start;
+    transition: opacity 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#filter-panel-content {
+    transition: transform 0.3s ease-in-out;
+    height: 100vh; /* Ensure it takes full viewport height */
+    max-width: 400px; /* Or a specific width you prefer */
+    width: 100%;
+    transform: translateX(100%); /* Initial state: off-screen to the right */
+}
+
+#filter-panel.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#filter-panel.active #filter-panel-content {
+    transform: translateX(0); /* Final state: visible */
+}
+
+/* Tutorial Carousel Styles */
+#tutorial-carousel {
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Tutorial Card Styles */
+.tutorial-card {
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial-card .relative {
+    flex-shrink: 0;
+}
+
+.tutorial-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tutorial-card .p-6 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tutorial-card h4 {
+    transition: color 0.3s ease;
+}
+
+.tutorial-card .difficulty-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+}
+
+.tutorial-card .category-badge {
+    background: var(--gray-100);
+    color: var(--gray-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.tutorial-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Carousel Navigation Styles */
+.carousel-nav-btn {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorials-carousel:hover .carousel-nav-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-nav-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-nav-btn:active {
+    transform: scale(0.95);
+}
+
+/* Carousel Container Styles */
+#web-dev-carousel,
+#data-science-carousel,
+#mobile-dev-carousel {
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    scroll-behavior: smooth;
+}
+
+/* Category Title Styles */
+.text-2xl.font-semibold {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.text-2xl.font-semibold::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 3rem;
+    height: 0.25rem;
+    background: #3b82f6;
+    border-radius: 0.125rem;
+}
+
+/* Page Transition and Loading Styles */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3b82f6;
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.page-transition.active {
+    transform: translateY(0);
+}
+
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10000;
+    display: none;
+}
+
+.loading-spinner.active {
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Enhanced Button Styles */
+.tutorial-card button,
+.browse-projects-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tutorial-card button::after,
+.browse-projects-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.tutorial-card button:hover::after,
+.browse-projects-btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.tutorial-card button:active,
+.browse-projects-btn:active {
+    transform: scale(0.95);
+}
+
+/* Back Button Styles */
+.back-button {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: #4B5563; /* Darker gray background */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: white; /* Ensure text is white */
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    background: #374151; /* Even darker gray on hover */
+}
+
+.back-button:active {
+    transform: scale(0.95);
+}
+
+/* Button Click Animation */
+@keyframes buttonClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button-click {
+    animation: buttonClick 0.3s ease;
+}
+
+/* Tab Animations */
+.tab-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+/* Card Content Animations */
+.tutorial-card .text-gray-600 {
+    transition: color 0.3s ease;
+}
+
+.tutorial-card:hover .text-gray-600 {
+    color: #4b5563;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.tutorial-card.loading {
+    animation: shimmer 1.5s infinite;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+}
+
+/* Card Badge Animations */
+.tutorial-card .absolute {
+    transition: transform 0.3s ease;
+}
+
+.tutorial-card:hover .absolute {
+    transform: scale(1.05);
+}
+
+/* Responsive Animations */
+@media (max-width: 768px) {
+    .tutorial-card {
+        transform: none;
+    }
+    
+    .tutorial-card:hover {
+        transform: none;
+    }
+    
+    .carousel-nav-btn {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Tutorial Progress Bar */
+.tutorial-progress-bar {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Base Styles */
+:root {
+    --primary-color: #2563EB; /* Professional Blue */
+    --primary-hover: #1D4ED8;
+    --secondary-color: #0F172A; /* Deep Navy */
+    --secondary-hover: #1E293B;
+    --accent-color: #0284C7; /* Sky Blue */
+    --accent-hover: #0369A1;
+    --success-color: #059669; /* Professional Green */
+    --error-color: #DC2626; /* Professional Red */
+    --warning-color: #D97706; /* Professional Orange */
+    --info-color: #2563EB; /* Professional Blue */
+    
+    /* Neutral Colors */
+    --background-light: #FFFFFF;
+    --background-dark: #0F172A;
+    --text-light: #1E293B;
+    --text-dark: #F8FAFC;
+    
+    /* Grayscale */
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E1;
+    --gray-400: #94A3B8;
+    --gray-500: #64748B;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1E293B;
+    --gray-900: #0F172A;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to right, #ffffff, #f8fafc);
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+}
+
+/* Navigation */
+nav {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgb(231, 227, 227);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-container input {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: 180px;
+    transition: all 0.2s ease;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.search-container i {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.search-container i:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    opacity: 0.1;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.025em;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2);
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    border: 1px solid var(--gray-200);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Tutorial/Project Cards */
+.tutorial-card, .project-card {
+    /* Removed box-shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    /* Removed box-shadow */
+}
+
+.tutorial-card .difficulty-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+}
+
+.tutorial-card .category-badge {
+    background: var(--gray-100);
+    color: var(--gray-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Progress Bars */
+.progress-bar {
+    background: var(--gray-200);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.2s ease;
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: var(--gray-400);
+    padding: 4rem 0;
+}
+
+footer a {
+    color: var(--gray-400);
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 0;
+    }
+    
+    .card {
+        margin: 1rem 0;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus Styles */
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+}
+
+/* Selection */
+::selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure content doesn't hide behind fixed header */
+body {
+    padding-top: 80px;
+    background-color: #f8fafc;
+}
+
+/* Update button styles to match the color scheme */
+button, .btn {
+    background-color: #2563eb;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* Update section backgrounds */
+section {
+    background-color: #ffffff;
+}
+
+/* Update card styles */
+.tutorial-card {
+    border: 1px solid #e2e8f0;
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+}
+
+.tutorial-card:hover {
+    border-color: #bfdbfe;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
+}
+
+/* Project Cards */
+.project-card {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Difficulty Filter Buttons */
+.difficulty-filter {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.difficulty-filter:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.difficulty-filter.active {
+    background: white;
+    color: #2563eb;
+}
+
+/* Code Editor */
+.CodeMirror {
+    height: auto;
+    border-radius: 0.5rem;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Rating Stars */
+.rating-button {
+    transition: transform 0.2s ease;
+}
+
+.rating-button:hover {
+    transform: scale(1.2);
+}
+
+/* Comment Form */
+.comment-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Project Details */
+.project-details {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Try Online Button */
+.try-online-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.try-online-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.try-online-button:hover::after {
+    transform: translateX(100%);
+}
+
+/* Download Button */
+.download-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.download-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.download-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Comments Section */
+.comment {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.comment::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-card {
+        margin: 0 1rem;
+    }
+
+    .difficulty-filter {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .CodeMirror {
+        font-size: 0.875rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .project-card {
+        background: #1f2937;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .difficulty-filter {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .difficulty-filter:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .difficulty-filter.active {
+        background: #2563eb;
+        color: white;
+    }
+}
+/* Animations */
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-down {
+    animation: fade-in-down 0.6s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+}
+
+@keyframes blob {
+    0% {
+        transform: scale(1) translate(0px, 0px);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        transform: scale(1.1) translate(20px, -30px);
+        border-radius: 30% 70% 60% 40% / 40% 70% 30% 60%;
+    }
+    100% {
+        transform: scale(1) translate(0px, 0px);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite alternate;
+}
+
+/* Animation delays */
+.animation-delay-100 {
+    animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}

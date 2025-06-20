@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Basics Tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs/loader.js"></script>
+    <style>
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            height: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #2563eb;
+            width: 0%;
+            border-radius: 0.5rem;
+            transition: width 0.5s ease-in-out;
+        }
+        .lesson-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: #e2e8f0; /* bg-gray-200 */
+            color: #1a202c; /* text-gray-900 */
+            transition: all 0.2s ease-in-out;
+            font-weight: 500;
+        }
+        .lesson-link:hover {
+            background-color: #cbd5e0; /* bg-gray-300 */
+        }
+        .lesson-link.active {
+            background-color: #2563eb; /* bg-blue-600 */
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-24 pb-12 px-4 md:px-8 lg:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+            <!-- Left Column: Lesson Navigation -->
+            <aside class="w-full lg:w-1/4 bg-white p-6 rounded-lg shadow-lg flex-shrink-0">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Python Basics</h2>
+                <div class="progress-section mb-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Tutorial Progress</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="tutorial-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2"><span id="tutorial-progress-percentage">0%</span> Complete</p>
+                </div>
+                <nav>
+                    <ul id="lesson-list">
+                        <li><a href="#lesson1" class="lesson-link active" data-lesson-id="1">1. Introduction to Python</a></li>
+                        <li><a href="#lesson2" class="lesson-link" data-lesson-id="2">2. Variables and Data Types</a></li>
+                        <li><a href="#lesson3" class="lesson-link" data-lesson-id="3">3. Operators</a></li>
+                        <li><a href="#lesson4" class="lesson-link" data-lesson-id="4">4. Control Flow (If/Else)</a></li>
+                        <li><a href="#lesson5" class="lesson-link" data-lesson-id="5">5. Loops (For/While)</a></li>
+                        <li><a href="#lesson6" class="lesson-link" data-lesson-id="6">6. Functions</a></li>
+                        <li><a href="#lesson7" class="lesson-link" data-lesson-id="7">7. Lists and Tuples</a></li>
+                        <li><a href="#lesson8" class="lesson-link" data-lesson-id="8">8. Dictionaries and Sets</a></li>
+                        <li><a href="#lesson9" class="lesson-link" data-lesson-id="9">9. File I/O</a></li>
+                        <li><a href="#lesson10" class="lesson-link" data-lesson-id="10">10. Modules and Packages</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Right Column: Lesson Content and Code Editor -->
+            <section class="w-full lg:w-3/4 flex flex-col gap-8">
+                <!-- Lesson Content -->
+                <article id="lesson-content" class="bg-white p-8 rounded-lg shadow-lg">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-4" id="lesson-title">Introduction to Python</h1>
+                    <div id="lesson-text" class="prose max-w-none text-gray-700">
+                        <p class="mb-4">Welcome to the Python Basics tutorial! In this first lesson, we'll cover what Python is, its history, and why it's a great language to learn for beginners and experienced developers alike. Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">What is Python?</h2>
+                        <p class="mb-4">Python was created by Guido van Rossum and first released in 1991. It is known for its simplicity and readability, making it an excellent choice for beginners. Python is widely used in web development (Django, Flask), data analysis (Pandas, NumPy), artificial intelligence (TensorFlow, PyTorch), scientific computing, and much more.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Why Learn Python?</h2>
+                        <ul class="list-disc list-inside mb-4">
+                            <li><strong>Easy to Learn:</strong> Python's syntax is very straightforward and similar to natural language.</li>
+                            <li><strong>Versatile:</strong> It can be used for almost any type of software development.</li>
+                            <li><strong>Large Community:</strong> A huge and active community provides extensive support and resources.</li>
+                            <li><strong>Rich Libraries:</strong> Thousands of third-party libraries and frameworks are available.</li>
+                        </ul>
+                        <p>Let's get started with your first Python code!</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Your First Python Program</h2>
+                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>print("Hello, MITS!")</code></pre>
+                        <p>This simple line of code will print "Hello, MITS!" to the console. You can try it in the code editor below.</p>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button id="prev-lesson" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors hidden">Previous Lesson</button>
+                        <button id="next-lesson" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Next Lesson</button>
+                    </div>
+                </article>
+
+                <!-- Code Editor -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Interactive Code Editor</h3>
+                    <div id="editor" class="w-full h-80 border border-gray-300 rounded-lg"></div>
+                    <div class="flex justify-end mt-4 space-x-3">
+                        <button id="run-code" class="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            <i class="fas fa-play mr-2"></i>Run Code
+                        </button>
+                        <button id="reset-code" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                            <i class="fas fa-redo mr-2"></i>Reset
+                        </button>
+                    </div>
+                    <div id="output" class="bg-gray-800 text-white p-4 rounded-lg mt-4 text-sm font-mono whitespace-pre-wrap"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="tutorials.html" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="projects.html" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="contact.html" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Monaco Editor when the window loads
+        window.addEventListener('load', function() {
+            try {
+                require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs' } });
+                require(['vs/editor/editor.main'], function() {
+                    let editor = monaco.editor.create(document.getElementById('editor'), {
+                        value: 'print("Hello, MITS!")',
+                        language: 'python',
+                        theme: 'vs-dark',
+                        minimap: { enabled: false }
+                    });
+
+                    const outputDiv = document.getElementById('output');
+                    const runButton = document.getElementById('run-code');
+                    const resetButton = document.getElementById('reset-code');
+
+                    // Dummy run functionality - in a real app, this would send code to a server
+                    runButton.addEventListener('click', () => {
+                        const code = editor.getValue();
+                        outputDiv.textContent = `Running code:\n${code}\n\n(This is a simulated output. In a real application, this would execute on a server and return actual results.)`;
+                    });
+
+                    resetButton.addEventListener('click', () => {
+                        editor.setValue('print("Hello, MITS!")');
+                        outputDiv.textContent = '';
+                    });
+
+                    // Lesson Content and Navigation
+                    const lessons = [
+                        {
+                            id: 1,
+                            title: 'Introduction to Python',
+                            content: `<p class="mb-4">Welcome to the Python Basics tutorial! In this first lesson, we'll cover what Python is, its history, and why it's a great language to learn for beginners and experienced developers alike. Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.</p>
+                                <h2 class="text-2xl font-semibold text-gray-800 mb-3">What is Python?</h2>
+                                <p class="mb-4">Python was created by Guido van Rossum and first released in 1991. It is known for its simplicity and readability, making it an excellent choice for beginners. Python is widely used in web development (Django, Flask), data analysis (Pandas, NumPy), artificial intelligence (TensorFlow, PyTorch), scientific computing, and much more.</p>
+                                <h2 class="text-2xl font-semibold text-gray-800 mb-3">Why Learn Python?</h2>
+                                <ul class="list-disc list-inside mb-4">
+                                    <li><strong>Easy to Learn:</strong> Python's syntax is very straightforward and similar to natural language.</li>
+                                    <li><strong>Versatile:</strong> It can be used for almost any type of software development.</li>
+                                    <li><strong>Large Community:</strong> A huge and active community provides extensive support and resources.</li>
+                                    <li><strong>Rich Libraries:</strong> Thousands of third-party libraries and frameworks are available.</li>
+                                </ul>
+                                <p>Let's get started with your first Python code!</p>
+                                <h2 class="text-2xl font-semibold text-gray-800 mb-3">Your First Python Program</h2>
+                                <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>print("Hello, MITS!")</code></pre>
+                                <p>This simple line of code will print "Hello, MITS!" to the console. You can try it in the code editor below.</p>`,
+                            code: 'print("Hello, MITS!")'
+                        },
+                        {
+                            id: 2,
+                            title: 'Variables and Data Types',
+                            content: `<p class="mb-4">In this lesson, we'll explore variables and common data types in Python. Variables are used to store data values. Python is dynamically typed, meaning you don't need to declare the type of a variable when you create it.</p>
+                                <h2 class="text-2xl font-semibold text-gray-800 mb-3">Variables</h2>
+                                <p class="mb-4">A variable is created the moment you first assign a value to it.</p>
+                                <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>name = "Alice"
+age = 30
+is_student = True</code></pre>
+                                <h2 class="text-2xl font-semibold text-gray-800 mb-3">Data Types</h2>
+                                <ul class="list-disc list-inside mb-4">
+                                    <li><strong>Text Type:</strong> <code>str</code> (string)</li>
+                                    <li><strong>Numeric Types:</strong> <code>int</code> (integer), <code>float</code> (floating point), <code>complex</code></li>
+                                    <li><strong>Sequence Types:</strong> <code>list</code>, <code>tuple</code>, <code>range</code></li>
+                                    <li><strong>Mapping Type:</strong> <code>dict</code> (dictionary)</li>
+                                    <li><strong>Set Types:</strong> <code>set</code>, <code>frozenset</code></li>
+                                    <li><strong>Boolean Type:</strong> <code>bool</code> (boolean)</li>
+                                </ul>
+                                <p>You can use the <code>type()</code> function to check the data type of any variable.</p>
+                                <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>x = 10
+y = "Python"
+print(type(x))
+print(type(y))</code></pre>`,
+                            code: 'x = 10\ny = "Python"\nprint(type(x))\nprint(type(y))'
+                        }
+                    ];
+
+                    // Initialize lesson content
+                    let currentLessonIndex = 0;
+                    const lessonTitle = document.getElementById('lesson-title');
+                    const lessonText = document.getElementById('lesson-text');
+                    const lessonLinks = document.querySelectorAll('.lesson-link');
+                    const prevLessonBtn = document.getElementById('prev-lesson');
+                    const nextLessonBtn = document.getElementById('next-lesson');
+                    const tutorialProgressFill = document.getElementById('tutorial-progress-fill');
+                    const tutorialProgressPercentage = document.getElementById('tutorial-progress-percentage');
+                    const totalLessons = lessons.length;
+
+                    function updateLessonContent() {
+                        const lesson = lessons[currentLessonIndex];
+                        lessonTitle.textContent = lesson.title;
+                        lessonText.innerHTML = lesson.content;
+                        editor.setValue(lesson.code);
+                        outputDiv.textContent = ''; // Clear previous output
+
+                        // Update active lesson link
+                        lessonLinks.forEach(link => link.classList.remove('active'));
+                        document.querySelector(`.lesson-link[data-lesson-id="${lesson.id}"]`).classList.add('active');
+
+                        // Update navigation buttons
+                        prevLessonBtn.classList.toggle('hidden', currentLessonIndex === 0);
+                        nextLessonBtn.classList.toggle('hidden', currentLessonIndex === totalLessons - 1);
+
+                        updateProgressBar();
+                    }
+
+                    function updateProgressBar() {
+                        const progress = ((currentLessonIndex + 1) / totalLessons) * 100;
+                        tutorialProgressFill.style.width = `${progress}%`;
+                        tutorialProgressPercentage.textContent = `${Math.round(progress)}%`;
+                    }
+
+                    lessonLinks.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const lessonId = parseInt(link.dataset.lessonId);
+                            currentLessonIndex = lessons.findIndex(lesson => lesson.id === lessonId);
+                            updateLessonContent();
+                        });
+                    });
+
+                    prevLessonBtn.addEventListener('click', () => {
+                        if (currentLessonIndex > 0) {
+                            currentLessonIndex--;
+                            updateLessonContent();
+                        }
+                    });
+
+                    nextLessonBtn.addEventListener('click', () => {
+                        if (currentLessonIndex < totalLessons - 1) {
+                            currentLessonIndex++;
+                            updateLessonContent();
+                        }
+                    });
+
+                    // Initial load
+                    updateLessonContent();
+                });
+            } catch (error) {
+                console.error('Error initializing Monaco Editor:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

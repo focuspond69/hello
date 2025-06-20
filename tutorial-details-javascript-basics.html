@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics - Learn JavaScript Programming</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <style>
+        :root {
+            --primary-color: #f8f9fa;
+            --secondary-color: #e9ecef;
+            --accent-color: #0d6efd;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .tutorial-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tutorial-header {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tutorial-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tutorial-sidebar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .lesson-item {
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lesson-item:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .lesson-item.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .code-editor {
+            background-color: #282c34;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .code-editor pre {
+            margin: 0;
+            padding: 0;
+        }
+
+        .code-editor code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+
+        .btn-outline-primary {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .progress {
+            height: 0.5rem;
+            background-color: var(--secondary-color);
+        }
+
+        .progress-bar {
+            background-color: var(--accent-color);
+        }
+
+        .badge {
+            padding: 0.5em 1em;
+            font-weight: 500;
+        }
+
+        .badge-beginner {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .badge-javascript {
+            background-color: #f7df1e;
+            color: black;
+        }
+
+        .tutorial-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6c757d;
+        }
+
+        .meta-item i {
+            font-size: 1.1rem;
+        }
+
+        .tutorial-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tutorial-navigation .btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tutorial-navigation .btn i {
+            font-size: 0.9rem;
+        }
+
+        .tutorial-navigation .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .tutorial-navigation .btn:disabled i {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CodeLearn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="practice.html">Practice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Container -->
+    <div class="tutorial-container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Tutorial Header -->
+                <div class="tutorial-header">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h1 class="mb-3">JavaScript Basics</h1>
+                            <div class="tutorial-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    2 hours
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-signal"></i>
+                                    Beginner
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-code"></i>
+                                    12 lessons
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="badge badge-beginner">Beginner</span>
+                            <span class="badge badge-javascript">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="progress mt-3">
+                        <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Tutorial Content -->
+                <div class="tutorial-content">
+                    <div id="lesson-content">
+                        <h2>Welcome to JavaScript Basics!</h2>
+                        <p>JavaScript is the programming language of the web. It's used to create interactive websites and web applications. In this tutorial, you'll learn the fundamentals of JavaScript programming.</p>
+                        
+                        <h3 class="mt-4">What You'll Learn</h3>
+                        <ul>
+                            <li>Variables and data types</li>
+                            <li>Functions and scope</li>
+                            <li>Control flow and loops</li>
+                            <li>Arrays and objects</li>
+                            <li>DOM manipulation</li>
+                            <li>Event handling</li>
+                        </ul>
+
+                        <h3 class="mt-4">Prerequisites</h3>
+                        <p>Before starting this tutorial, you should have:</p>
+                        <ul>
+                            <li>Basic understanding of HTML and CSS</li>
+                            <li>A modern web browser</li>
+                            <li>A code editor (like Visual Studio Code)</li>
+                        </ul>
+
+                        <div class="tutorial-navigation">
+                            <button class="btn btn-outline-primary" disabled>
+                                <i class="fas fa-arrow-left"></i>
+                                Previous Lesson
+                            </button>
+                            <button class="btn btn-primary" onclick="startLesson(1)">
+                                Start First Lesson
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="tutorial-sidebar">
+                    <h4 class="mb-3">Course Content</h4>
+                    <div class="lesson-list">
+                        <div class="lesson-item active" onclick="showLesson(0)">
+                            <i class="fas fa-play-circle me-2"></i>
+                            Introduction
+                        </div>
+                        <div class="lesson-item" onclick="showLesson(1)">
+                            <i class="fas fa-lock me-2"></i>
+                            1. Variables and Data Types
+                        </div>
+                        <div class="lesson-item" onclick="showLesson(2)">
+                            <i class="fas fa-lock me-2"></i>
+                            2. Functions and Scope
+                        </div>
+                        <div class="lesson-item" onclick="showLesson(3)">
+                            <i class="fas fa-lock me-2"></i>
+                            3. Control Flow
+                        </div>
+                        <div class="lesson-item" onclick="showLesson(4)">
+                            <i class="fas fa-lock me-2"></i>
+                            4. Arrays and Objects
+                        </div>
+                        <div class="lesson-item" onclick="showLesson(5)">
+                            <i class="fas fa-lock me-2"></i>
+                            5. DOM Manipulation
+                        </div>
+                        <div class="lesson-item" onclick="showLesson(6)">
+                            <i class="fas fa-lock me-2"></i>
+                            6. Event Handling
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        // Lesson content
+        const lessons = [
+            {
+                title: "Introduction",
+                content: `
+                    <h2>Welcome to JavaScript Basics!</h2>
+                    <p>JavaScript is the programming language of the web. It's used to create interactive websites and web applications. In this tutorial, you'll learn the fundamentals of JavaScript programming.</p>
+                    
+                    <h3 class="mt-4">What You'll Learn</h3>
+                    <ul>
+                        <li>Variables and data types</li>
+                        <li>Functions and scope</li>
+                        <li>Control flow and loops</li>
+                        <li>Arrays and objects</li>
+                        <li>DOM manipulation</li>
+                        <li>Event handling</li>
+                    </ul>
+
+                    <h3 class="mt-4">Prerequisites</h3>
+                    <p>Before starting this tutorial, you should have:</p>
+                    <ul>
+                        <li>Basic understanding of HTML and CSS</li>
+                        <li>A modern web browser</li>
+                        <li>A code editor (like Visual Studio Code)</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Variables and Data Types",
+                content: `
+                    <h2>Variables and Data Types</h2>
+                    <p>In JavaScript, variables are containers for storing data values. JavaScript has several built-in data types:</p>
+                    
+                    <h3 class="mt-4">Variable Declaration</h3>
+                    <div class="code-editor">
+                        <pre><code class="language-javascript">// Using let (recommended)
+let name = "John";
+let age = 25;
+
+// Using const (for values that won't change)
+const PI = 3.14159;
+
+// Using var (older way, not recommended)
+var oldWay = "avoid this";</code></pre>
+                    </div>
+
+                    <h3 class="mt-4">Data Types</h3>
+                    <div class="code-editor">
+                        <pre><code class="language-javascript">// String
+let text = "Hello, World!";
+
+// Number
+let number = 42;
+let decimal = 3.14;
+
+// Boolean
+let isTrue = true;
+let isFalse = false;
+
+// Array
+let fruits = ["apple", "banana", "orange"];
+
+// Object
+let person = {
+    name: "John",
+    age: 25,
+    isStudent: true
+};
+
+// Undefined
+let notDefined;
+
+// Null
+let empty = null;</code></pre>
+                    </div>
+
+                    <h3 class="mt-4">Type Checking</h3>
+                    <div class="code-editor">
+                        <pre><code class="language-javascript">// Using typeof operator
+console.log(typeof "Hello");     // "string"
+console.log(typeof 42);          // "number"
+console.log(typeof true);        // "boolean"
+console.log(typeof []);          // "object"
+console.log(typeof {});          // "object"
+console.log(typeof undefined);   // "undefined"
+console.log(typeof null);        // "object"</code></pre>
+                    </div>
+                `
+            }
+        ];
+
+        let currentLesson = 0;
+
+        function showLesson(index) {
+            if (index === 0 || index <= currentLesson) {
+                const lessonContent = document.getElementById('lesson-content');
+                lessonContent.innerHTML = lessons[index].content;
+                
+                // Update active lesson
+                document.querySelectorAll('.lesson-item').forEach((item, i) => {
+                    item.classList.toggle('active', i === index);
+                });
+
+                // Update navigation buttons
+                const prevBtn = document.querySelector('.tutorial-navigation .btn-outline-primary');
+                const nextBtn = document.querySelector('.tutorial-navigation .btn-primary');
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.innerHTML = index === lessons.length - 1 ? 
+                    'Complete Tutorial' : 
+                    'Next Lesson <i class="fas fa-arrow-right"></i>';
+
+                // Update progress
+                const progress = ((index + 1) / lessons.length) * 100;
+                document.querySelector('.progress-bar').style.width = `${progress}%`;
+            }
+        }
+
+        function startLesson(index) {
+            if (index <= currentLesson + 1) {
+                currentLesson = index;
+                showLesson(index);
+            }
+        }
+
+        // Initialize syntax highlighting
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

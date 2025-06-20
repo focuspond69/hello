@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITS - Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .difficulty-filter {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 500;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .difficulty-filter:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .difficulty-filter.active {
+            background-color: white;
+            color: #2563eb;
+            border-color: white;
+            font-weight: 600;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card[style*="display: none"] {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .project-card[style*="display: block"] {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container ml-auto">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Projects Header -->
+    <section class="pt-8 pb-6 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-2">Hands-on Projects</h1>
+            <p class="text-lg text-center">Enhance your skills with practical projects across different difficulty levels</p>
+            
+            <!-- Difficulty Filter -->
+            <div class="flex justify-center space-x-4 mt-4">
+                <button class="difficulty-filter active" data-difficulty="all">All Projects</button>
+                <button class="difficulty-filter" data-difficulty="beginner">Beginner</button>
+                <button class="difficulty-filter" data-difficulty="intermediate">Intermediate</button>
+                <button class="difficulty-filter" data-difficulty="advanced">Advanced</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Beginner Projects -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8">Beginner Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="beginner">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="To-Do List App" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">To-Do List Application</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Build a simple to-do list app with HTML, CSS, and JavaScript. Learn basic CRUD operations.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 2 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.5 (120)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-todo-app.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="beginner">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Calculator" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Simple Calculator</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Create a basic calculator with HTML, CSS, and JavaScript. Practice DOM manipulation.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 1.5 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.2 (85)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-calculator.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 3 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="beginner">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Portfolio Website" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Personal Portfolio Website</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Create a responsive portfolio website using HTML and CSS. Learn about modern web design principles.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 3 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.3 (95)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-portfolio.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 4 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="beginner">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Quiz App" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Interactive Quiz App</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Build a quiz application with multiple-choice questions and score tracking using JavaScript.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 2.5 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.4 (110)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-quiz-app.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 5 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="beginner">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Recipe Finder" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Recipe Finder App</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Create a recipe finder application with search functionality and ingredient filtering using JavaScript.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 3 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.2 (75)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 6 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="beginner">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Password Generator" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Beginner
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Password Generator</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Build a secure password generator with customizable options and copy-to-clipboard functionality.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 2 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.5 (60)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-password-generator.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intermediate Projects -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8">Intermediate Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="intermediate">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Weather App" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Weather Application</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Build a weather app using APIs, async JavaScript, and modern web development practices.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 4 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.7 (95)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-weather-app.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 2 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="intermediate">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Task Manager" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Task Management System</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Create a full-featured task manager with user authentication, task categories, and progress tracking.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 6 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.6 (85)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-task-management.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 3 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="intermediate">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blog Platform" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Blog Platform</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Develop a blog platform with rich text editing, comments, and user profiles using modern web technologies.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 8 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.8 (65)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-blog.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 4 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="intermediate">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Expense Tracker" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Expense Tracker</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Develop an expense tracking application with data visualization, categories, and monthly reports.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 7 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.6 (70)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-expense-tracker.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 5 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="intermediate">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Social Media Dashboard" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Intermediate
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Social Media Dashboard</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Create a social media dashboard with analytics, post scheduling, and engagement tracking.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 9 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.7 (55)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-social-dashboard.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Projects -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8">Advanced Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="advanced">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="E-commerce Platform" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Advanced
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">E-commerce Platform</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Develop a full-stack e-commerce platform with user authentication, payment integration, and admin dashboard.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 20 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.9 (75)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-ecommerce.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 2 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="advanced">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Real-time Chat" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Advanced
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Real-time Chat Application</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Build a real-time chat application with WebSocket integration, user authentication, and message persistence.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 15 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.7 (55)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-chat-app.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 3 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="advanced">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Project Management" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Advanced
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Project Management System</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Develop a comprehensive project management system with team collaboration, task tracking, and analytics.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 25 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.9 (45)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-management-system.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 4 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="advanced">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="AI Image Generator" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Advanced
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">AI Image Generator</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Build an AI-powered image generation application with style transfer and custom prompts.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 18 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.8 (40)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-ai-generator.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Project Card 5 -->
+                    <div class="project-card h-[280px] flex flex-col" data-difficulty="advanced">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blockchain Wallet" class="w-full h-48 object-cover">
+                            <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                Advanced
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Blockchain Wallet</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">Develop a secure blockchain wallet with transaction history, token support, and smart contract interaction.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-gray-500">Estimated Time: 22 hours</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <span class="ml-1 text-sm text-gray-600">4.9 (35)</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-3 mt-auto">
+                                <a href="project-details-blockchain-wallet.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                    View Details
+                                </a>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.difficulty-filter');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const difficulty = button.dataset.difficulty;
+
+                    // Show/hide projects based on difficulty
+                    projectCards.forEach(card => {
+                        if (difficulty === 'all' || card.dataset.difficulty === difficulty) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

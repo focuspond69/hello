@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITS - Tutorials</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+    <style>
+        .tutorial-filter {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            color: #2563eb;
+            font-weight: 500;
+            border: 2px solid #2563eb;
+        }
+
+        .tutorial-filter:hover {
+            background-color: #e0e7ff;
+            border-color: #1d4ed8;
+        }
+
+        .tutorial-filter.active {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .tutorial-card {
+            transition: all 0.3s ease;
+            padding: 8;
+        }
+
+        .tutorial-card[style*="display: none"] {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .tutorial-card[style*="display: block"] {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        #editor {
+            height: 400px;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+        }
+
+        .language-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            color: #2563eb;
+            font-weight: 500;
+            border: 2px solid #2563eb;
+        }
+
+        .language-tab.active {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .filter-group label {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            color: #2563eb;
+            font-weight: 500;
+            border: 2px solid #2563eb;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .filter-group input[type="checkbox"]:checked + label {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .filter-group label:hover {
+            background-color: #e0e7ff;
+            border-color: #1d4ed8;
+        }
+
+        .filter-group input[type="checkbox"] {
+            display: none;
+        }
+
+        .filter-group input[type="checkbox"]:checked + .filter-label {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .filter-label:hover {
+            background-color: #e0e7ff;
+            border-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="search-container ml-auto">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Tutorials Header -->
+    <section class="pt-20 pb-10 bg-blue-800 text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center relative z-10 text-center">
+            <div class="mb-8 md:mb-0">
+                <h1 class="text-5xl font-extrabold mb-4 animate-fade-in-down">Programming Tutorials</h1>
+                <p class="text-xl opacity-90 animate-fade-in-up mb-4">Dive deep into various programming languages and concepts with our expertly crafted tutorials.</p>
+                <p class="text-lg opacity-80 animate-fade-in-up animation-delay-100">Whether you're a beginner taking your first steps or an experienced developer looking to expand your knowledge, we have something for everyone.</p>
+            </div>
+        </div>
+        <!-- Abstract Background Shapes -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-40 h-40 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-1/2 left-1/2 w-56 h-56 bg-blue-700 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+    </section>
+
+    <!-- Main Content - Two Columns -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row gap-8">
+            <!-- Left Column: Tutorial Cards -->
+            <div class="w-full lg:w-3/4">
+                <!-- Python Tutorials -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8 animate-slide-in-left">Python Tutorials</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Tutorial Card 1 -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in" data-language="python" data-difficulty="beginner">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Python Basics</h3>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Beginner
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Learn Python fundamentals including variables, data types, and control structures.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-python-basics.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tutorial Card 2 -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-100" data-language="python" data-difficulty="intermediate">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Object-Oriented Python</h3>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Master OOP concepts in Python including classes, inheritance, and polymorphism.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-python-oop.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- New Python Card 3 -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-200" data-language="python" data-difficulty="advanced">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Python Data Science</h3>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Explore data analysis, machine learning, and visualization with Python libraries.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-python-data-science.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- New Python Card 4 -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden" data-language="python" data-difficulty="advanced">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Advanced Python Concepts</h3>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Dive into decorators, generators, context managers, and metaclasses in Python.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-python-advanced.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C++ Tutorials -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8 animate-slide-in-left">C++ Tutorials</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- C++ Tutorial Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in" data-language="cpp" data-difficulty="beginner">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">C++ Fundamentals</h3>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Beginner
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Master C++ basics including syntax, variables, control structures, and functions.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-cpp-basics.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- C++ Intermediate Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-100" data-language="cpp" data-difficulty="intermediate">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">C++ OOP & STL</h3>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Master Object-Oriented Programming and Standard Template Library in C++.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-cpp-oop.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- C++ Advanced Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-200" data-language="cpp" data-difficulty="advanced">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Advanced C++ & Memory Management</h3>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Deep dive into memory management, smart pointers, and advanced C++ features.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-cpp-advanced.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Tutorials -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8 animate-slide-in-left">Java Tutorials</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Java Tutorial Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in" data-language="java" data-difficulty="beginner">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Java Essentials</h3>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Beginner
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Learn Java programming fundamentals, object-oriented concepts, and basic syntax.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-java-basics.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Java Intermediate Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-100" data-language="java" data-difficulty="intermediate">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Spring Boot & REST APIs</h3>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Build robust web applications and RESTful APIs using Spring Boot framework.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-java-spring.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Java Advanced Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-200" data-language="java" data-difficulty="advanced">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Java Enterprise Development</h3>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Master enterprise Java development with microservices, security, and cloud integration.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-java-enterprise.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JavaScript Tutorials -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8 animate-slide-in-left">JavaScript Tutorials</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- JavaScript Tutorial Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in" data-language="javascript" data-difficulty="beginner">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">JavaScript Basics</h3>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Beginner
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Master JavaScript fundamentals including variables, functions, DOM manipulation, and events.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-javascript-basics.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript Intermediate Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-100" data-language="javascript" data-difficulty="intermediate">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">React & Modern JS</h3>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Build modern web applications with React, hooks, and state management.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-javascript-react.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript Advanced Card -->
+                        <div class="tutorial-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out animate-fade-in animation-delay-200" data-language="javascript" data-difficulty="advanced">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-gray-900">Full-Stack JavaScript</h3>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Master full-stack development with Node.js, Express, MongoDB, and advanced React patterns.</p>
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span>Progress</span>
+                                        <span class="progress-percentage">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="tutorial-details-javascript-fullstack.html" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors text-center">
+                                        Start Tutorial
+                                    </a>
+                                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Filters and Search -->
+            <div class="w-full lg:w-1/4 p-6 rounded-lg h-fit lg:sticky top-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Filter Tutorials</h3>
+
+                <!-- Search Bar -->
+                <div class="mb-4">
+                    <label for="searchFilter" class="block text-sm font-medium text-gray-700 mb-2">Search by Title/Description:</label>
+                    <input type="text" id="searchFilter" placeholder="Search..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Language Filter -->
+                <div class="mb-4">
+                    <label for="languageFilter" class="block text-sm font-medium text-gray-700 mb-2">Filter by Language:</label>
+                    <select id="languageFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white">
+                        <option value="all">All Languages</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                </div>
+
+                <!-- Difficulty Filter -->
+                <div class="mb-4">
+                    <label for="difficultyFilter" class="block text-sm font-medium text-gray-700 mb-2">Filter by Difficulty:</label>
+                    <select id="difficultyFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 bg-white">
+                        <option value="all">All Difficulties</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <!-- Apply Filters Button -->
+                <button id="applyFilters" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Editor Modal -->
+    <div id="codeEditorModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-11/12 max-w-4xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Code Editor</h3>
+                <button id="closeEditor" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="editor"></div>
+            <div class="mt-4 flex justify-end space-x-4">
+                <button id="runCode" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                    Run Code
+                </button>
+                <button id="resetCode" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                    Reset
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="/tutorials" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Monaco Editor
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            const editor = monaco.editor.create(document.getElementById('editor'), {
+                value: '// Write your code here\n',
+                language: 'javascript',
+                theme: 'vs-dark',
+                automaticLayout: true
+            });
+        });
+
+        // Tutorial filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tutorialCards = document.querySelectorAll('.tutorial-card');
+            const codeEditorModal = document.getElementById('codeEditorModal');
+            const closeEditor = document.getElementById('closeEditor');
+            const runCode = document.getElementById('runCode');
+            const resetCode = document.getElementById('resetCode');
+            const applyFiltersButton = document.getElementById('applyFilters');
+            const searchFilterInput = document.getElementById('searchFilter');
+            const languageFilterSelect = document.getElementById('languageFilter');
+            const difficultyFilterSelect = document.getElementById('difficultyFilter');
+
+            applyFiltersButton.addEventListener('click', filterTutorials);
+            searchFilterInput.addEventListener('keyup', filterTutorials); // Live search on keyup
+
+            function filterTutorials() {
+                const selectedLanguage = languageFilterSelect.value;
+                const selectedDifficulty = difficultyFilterSelect.value;
+                const searchQuery = searchFilterInput.value.toLowerCase();
+
+                tutorialCards.forEach(card => {
+                    const language = card.dataset.language;
+                    const difficulty = card.dataset.difficulty;
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    const matchesLanguage = selectedLanguage === 'all' || language === selectedLanguage;
+                    const matchesDifficulty = selectedDifficulty === 'all' || difficulty === selectedDifficulty;
+                    const matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
+
+                    if (matchesLanguage && matchesDifficulty && matchesSearch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Code editor functionality
+            document.querySelectorAll('.tutorial-card button').forEach(button => {
+                button.addEventListener('click', () => {
+                    codeEditorModal.classList.remove('hidden');
+                    codeEditorModal.classList.add('flex');
+                });
+            });
+
+            closeEditor.addEventListener('click', () => {
+                codeEditorModal.classList.add('hidden');
+                codeEditorModal.classList.remove('flex');
+            });
+
+            runCode.addEventListener('click', () => {
+                // Add code execution logic here
+                console.log('Running code...');
+            });
+
+            resetCode.addEventListener('click', () => {
+                editor.setValue('// Write your code here\n');
+            });
+
+            // Progress tracking
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const progressPercentages = document.querySelectorAll('.progress-percentage');
+
+            function updateProgress(tutorialId, progress) {
+                const index = Array.from(tutorialCards).findIndex(card => card.id === tutorialId);
+                if (index !== -1) {
+                    progressBars[index].style.width = `${progress}%`;
+                    progressPercentages[index].textContent = `${progress}%`;
+                }
+            }
+
+            // Example of updating progress (to be integrated with actual tutorial completion)
+            document.querySelectorAll('.tutorial-card a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tutorialId = link.closest('.tutorial-card').id;
+                    // In a real application, you'd fetch the actual progress or mark a lesson as complete.
+                    // For this example, we'll just increment by 20%.
+                    const currentProgress = parseInt(progressPercentages[Array.from(tutorialCards).indexOf(link.closest('.tutorial-card'))].textContent);
+                    updateProgress(tutorialId, Math.min(currentProgress + 20, 100));
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

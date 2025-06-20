@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITS - Offer Letter Generation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header (similar to homepage for consistency) -->
+    <header class="fixed w-full bg-white shadow-md z-40">
+        <nav class="mx-auto">
+            <div class="flex items-center">
+                
+                <a href="index.html" class="logo-container flex items-center">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img h-8 w-8 mr-2">
+                    <span class="logo-text text-xl font-bold" style="padding-right: 20px;">MITS</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links flex space-x-6">
+                <li><a href="index.html" class="hover:text-blue-600 transition-colors duration-200">Home</a></li>
+                <li><a href="tutorials.html" class="hover:text-blue-600 transition-colors duration-200">Tutorials</a></li>
+                <li><a href="projects.html" class="hover:text-blue-600 transition-colors duration-200">Projects</a></li>
+                <li><a href="about.html" class="hover:text-blue-600 transition-colors duration-200">About Us</a></li>
+                <li><a href="contact.html" class="hover:text-blue-600 transition-colors duration-200">Contact</a></li>
+            </ul>
+            
+            <div class="search-container relative ml-auto">
+                <input type="text" placeholder="Search..." class="py-1 px-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-800 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl font-bold mb-4">Offer Letter Generation</h1>
+                <p class="text-xl">Generate professional offer letters for selected candidates</p>
+            </div>
+        </section>
+
+        <!-- Offer Letter Form -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <form id="offerLetterForm" class="bg-white p-8 rounded-lg shadow-md">
+                    <!-- Candidate Information -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Candidate Information</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="candidateName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="candidateName" name="candidateName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="candidateEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="candidateEmail" name="candidateEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="candidatePhone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="candidatePhone" name="candidatePhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="candidateAddress" class="block text-sm font-medium text-gray-700 mb-2">Current Address</label>
+                                <input type="text" id="candidateAddress" name="candidateAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Position Details -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Position Details</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="positionTitle" class="block text-sm font-medium text-gray-700 mb-2">Position Title</label>
+                                <input type="text" id="positionTitle" name="positionTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="department" class="block text-sm font-medium text-gray-700 mb-2">Department</label>
+                                <select id="department" name="department" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <option value="">Select Department</option>
+                                    <option value="web">Web Development</option>
+                                    <option value="mobile">Mobile Development</option>
+                                    <option value="data">Data Science</option>
+                                    <option value="ai">Artificial Intelligence</option>
+                                    <option value="devops">DevOps</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+                                <input type="date" id="startDate" name="startDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="reportingManager" class="block text-sm font-medium text-gray-700 mb-2">Reporting Manager</label>
+                                <input type="text" id="reportingManager" name="reportingManager" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compensation Details -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Compensation Details</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="salary" class="block text-sm font-medium text-gray-700 mb-2">Annual Salary (INR)</label>
+                                <input type="number" id="salary" name="salary" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="benefits" class="block text-sm font-medium text-gray-700 mb-2">Additional Benefits</label>
+                                <select id="benefits" name="benefits" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" multiple>
+                                    <option value="health">Health Insurance</option>
+                                    <option value="dental">Dental Insurance</option>
+                                    <option value="vision">Vision Insurance</option>
+                                    <option value="life">Life Insurance</option>
+                                    <option value="retirement">Retirement Plan</option>
+                                    <option value="paidTimeOff">Paid Time Off</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Terms and Conditions</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="probationPeriod" class="block text-sm font-medium text-gray-700 mb-2">Probation Period (months)</label>
+                                <input type="number" id="probationPeriod" name="probationPeriod" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="noticePeriod" class="block text-sm font-medium text-gray-700 mb-2">Notice Period (days)</label>
+                                <input type="number" id="noticePeriod" name="noticePeriod" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="additionalTerms" class="block text-sm font-medium text-gray-700 mb-2">Additional Terms</label>
+                                <textarea id="additionalTerms" name="additionalTerms" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                            Generate Offer Letter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Preview Section (Hidden by default) -->
+        <section id="previewSection" class="py-12 bg-gray-50 hidden">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Offer Letter Preview</h2>
+                    <div id="offerLetterPreview" class="prose max-w-none">
+                        <!-- Preview content will be inserted here by JavaScript -->
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button id="downloadPDF" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors mr-4">
+                            Download PDF
+                        </button>
+                        <button id="printOffer" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Print Offer Letter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 MITS. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('offerLetterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Generate offer letter content
+            const offerLetterContent = generateOfferLetter(data);
+            
+            // Display preview
+            document.getElementById('offerLetterPreview').innerHTML = offerLetterContent;
+            document.getElementById('previewSection').classList.remove('hidden');
+            
+            // Scroll to preview
+            document.getElementById('previewSection').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function generateOfferLetter(data) {
+            const date = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            return `
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">OFFER LETTER</h1>
+                    <p class="text-gray-600">Date: ${date}</p>
+                </div>
+
+                <div class="mb-8">
+                    <p class="text-gray-700">Dear ${data.candidateName},</p>
+                    <p class="text-gray-700 mt-4">
+                        We are pleased to offer you the position of <strong>${data.positionTitle}</strong> at Micro Information Technology Services (MITS). 
+                        This offer is contingent upon your acceptance of the terms and conditions outlined below.
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Position Details</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Position: ${data.positionTitle}</li>
+                        <li>Department: ${data.department}</li>
+                        <li>Reporting Manager: ${data.reportingManager}</li>
+                        <li>Start Date: ${new Date(data.startDate).toLocaleDateString()}</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Compensation</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Annual Salary: ₹${data.salary}</li>
+                        <li>Benefits: ${data.benefits}</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Terms and Conditions</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Probation Period: ${data.probationPeriod} months</li>
+                        <li>Notice Period: ${data.noticePeriod} days</li>
+                        ${data.additionalTerms ? `<li>Additional Terms: ${data.additionalTerms}</li>` : ''}
+                    </ul>
+                </div>
+
+                <div class="mb-8">
+                    <p class="text-gray-700">
+                        Please sign and return this offer letter to indicate your acceptance of these terms. 
+                        We look forward to welcoming you to the MITS team!
+                    </p>
+                </div>
+
+                <div class="mt-12">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-700 font-semibold">For MITS</p>
+                            <p class="text-gray-700 mt-4">_________________</p>
+                            <p class="text-gray-700">HR Manager</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 font-semibold">Candidate</p>
+                            <p class="text-gray-700 mt-4">_________________</p>
+                            <p class="text-gray-700">${data.candidateName}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Download PDF functionality
+        document.getElementById('downloadPDF').addEventListener('click', function() {
+            // Implement PDF generation and download
+            alert('PDF download functionality will be implemented here.');
+        });
+
+        // Print functionality
+        document.getElementById('printOffer').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>

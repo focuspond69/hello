@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITS - Certificate Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header (similar to homepage for consistency) -->
+    <header class="fixed w-full bg-white shadow-md z-40">
+        <nav class="mx-auto">
+            <div class="flex items-center">
+                
+                <a href="index.html" class="logo-container flex items-center">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img h-8 w-8 mr-2">
+                    <span class="logo-text text-xl font-bold" style="padding-right: 20px;">MITS</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links flex space-x-6">
+                <li><a href="index.html" class="hover:text-blue-600 transition-colors duration-200">Home</a></li>
+                <li><a href="tutorials.html" class="hover:text-blue-600 transition-colors duration-200">Tutorials</a></li>
+                <li><a href="projects.html" class="hover:text-blue-600 transition-colors duration-200">Projects</a></li>
+                <li><a href="about.html" class="hover:text-blue-600 transition-colors duration-200">About Us</a></li>
+                <li><a href="contact.html" class="hover:text-blue-600 transition-colors duration-200">Contact</a></li>
+            </ul>
+            
+            <div class="search-container relative ml-auto">
+                <input type="text" placeholder="Search..." class="py-1 px-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-800 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl font-bold mb-4">Certificate Verification</h1>
+                <p class="text-xl">Verify the authenticity of MITS certificates</p>
+            </div>
+        </section>
+
+        <!-- Verification Form -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Verify Certificate</h2>
+                    <form id="verificationForm" class="space-y-6">
+                        <!-- Certificate ID -->
+                        <div>
+                            <label for="certificateId" class="block text-sm font-medium text-gray-700 mb-2">Certificate ID</label>
+                            <input type="text" id="certificateId" name="certificateId" 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="Enter the 12-digit certificate ID" 
+                                pattern="[A-Z0-9]{12}" 
+                                title="Please enter a valid 12-digit certificate ID"
+                                required>
+                            <p class="mt-1 text-sm text-gray-500">Enter the 12-digit certificate ID found on your certificate</p>
+                        </div>
+
+                        <!-- Certificate Type -->
+                        <div>
+                            <label for="certificateType" class="block text-sm font-medium text-gray-700 mb-2">Certificate Type</label>
+                            <select id="certificateType" name="certificateType" 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                required>
+                                <option value="">Select Certificate Type</option>
+                                <option value="course">Course Completion</option>
+                                <option value="internship">Internship</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="training">Training Program</option>
+                                <option value="achievement">Achievement</option>
+                            </select>
+                        </div>
+
+                        <!-- Candidate Name -->
+                        <div>
+                            <label for="candidateName" class="block text-sm font-medium text-gray-700 mb-2">Candidate Name</label>
+                            <input type="text" id="candidateName" name="candidateName" 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="Enter the name as it appears on the certificate"
+                                required>
+                        </div>
+
+                        <!-- Issue Date -->
+                        <div>
+                            <label for="issueDate" class="block text-sm font-medium text-gray-700 mb-2">Issue Date</label>
+                            <input type="date" id="issueDate" name="issueDate" 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                                Verify Certificate
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verification Results Section (Hidden by default) -->
+        <section id="verificationResults" class="py-12 bg-gray-50 hidden">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-center mb-8">
+                        <div id="verificationStatus" class="inline-block p-4 rounded-full mb-4">
+                            <!-- Status icon will be inserted here -->
+                        </div>
+                        <h2 id="verificationTitle" class="text-2xl font-bold text-gray-900"></h2>
+                        <p id="verificationMessage" class="text-gray-600 mt-2"></p>
+                    </div>
+
+                    <div id="certificateDetails" class="space-y-4">
+                        <!-- Certificate details will be inserted here -->
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <button id="downloadVerification" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors mr-4">
+                            Download Verification Report
+                        </button>
+                        <button id="printVerification" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Print Verification
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">About Certificate Verification</h2>
+                <div class="prose max-w-none">
+                    <p class="text-gray-700 mb-4">
+                        MITS provides a secure and reliable certificate verification system to help employers, educational institutions, and other organizations verify the authenticity of certificates issued by MITS.
+                    </p>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">How to Verify a Certificate</h3>
+                    <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-6">
+                        <li>Locate the 12-digit Certificate ID on the certificate</li>
+                        <li>Enter the Certificate ID in the verification form</li>
+                        <li>Select the certificate type</li>
+                        <li>Enter the candidate's name as it appears on the certificate</li>
+                        <li>Enter the issue date</li>
+                        <li>Click "Verify Certificate" to check authenticity</li>
+                    </ol>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Certificate Security Features</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Unique 12-digit Certificate ID</li>
+                        <li>QR Code for quick verification</li>
+                        <li>Digital signature</li>
+                        <li>Holographic seal</li>
+                        <li>Watermark</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 MITS. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Simulate verification process
+            verifyCertificate(data);
+        });
+
+        function verifyCertificate(data) {
+            // In a real application, this would make an API call to verify the certificate
+            // For demo purposes, we'll simulate a verification result
+            const isValid = Math.random() > 0.3; // 70% chance of being valid
+            
+            // Show results section
+            const resultsSection = document.getElementById('verificationResults');
+            resultsSection.classList.remove('hidden');
+            
+            // Update status icon and title
+            const statusDiv = document.getElementById('verificationStatus');
+            const titleElement = document.getElementById('verificationTitle');
+            const messageElement = document.getElementById('verificationMessage');
+            const detailsDiv = document.getElementById('certificateDetails');
+            
+            if (isValid) {
+                statusDiv.innerHTML = '<i class="fas fa-check-circle text-4xl text-green-500"></i>';
+                titleElement.textContent = 'Certificate Verified';
+                messageElement.textContent = 'This certificate has been verified as authentic.';
+                
+                // Display certificate details
+                detailsDiv.innerHTML = `
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900">Certificate Details</h4>
+                            <ul class="mt-2 space-y-2 text-gray-700">
+                                <li><strong>Certificate ID:</strong> ${data.certificateId}</li>
+                                <li><strong>Type:</strong> ${data.certificateType}</li>
+                                <li><strong>Name:</strong> ${data.candidateName}</li>
+                                <li><strong>Issue Date:</strong> ${new Date(data.issueDate).toLocaleDateString()}</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900">Verification Details</h4>
+                            <ul class="mt-2 space-y-2 text-gray-700">
+                                <li><strong>Verified On:</strong> ${new Date().toLocaleDateString()}</li>
+                                <li><strong>Verification ID:</strong> VF${Date.now().toString().slice(-8)}</li>
+                                <li><strong>Status:</strong> <span class="text-green-600">Valid</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else {
+                statusDiv.innerHTML = '<i class="fas fa-times-circle text-4xl text-red-500"></i>';
+                titleElement.textContent = 'Certificate Not Verified';
+                messageElement.textContent = 'This certificate could not be verified. Please check the details and try again.';
+                detailsDiv.innerHTML = '';
+            }
+            
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Download verification report
+        document.getElementById('downloadVerification').addEventListener('click', function() {
+            alert('Verification report download functionality will be implemented here.');
+        });
+
+        // Print verification
+        document.getElementById('printVerification').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html> 

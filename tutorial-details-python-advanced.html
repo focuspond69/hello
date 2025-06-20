@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Python Concepts Tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs/loader.js"></script>
+    <style>
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            height: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #2563eb;
+            width: 0%;
+            border-radius: 0.5rem;
+            transition: width 0.5s ease-in-out;
+        }
+        .lesson-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: #e2e8f0; /* bg-gray-200 */
+            color: #1a202c; /* text-gray-900 */
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+        }
+        .lesson-link:hover {
+            background-color: #cbd5e0; /* bg-gray-300 */
+        }
+        .lesson-link.active {
+            background-color: #2563eb; /* bg-blue-600 */
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <nav class="mx-auto">
+            <div class="logo-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFLxgiNGjJSXg/profile-displayphoto-shrink_200_200/B56ZaZiO9eGUAY-/0/1746332611599?e=2147483647&v=beta&t=A0vy3rhMrsndRSeNroo2KOg9bf0QQWE82HtSAB_wnK4" alt="MITS Logo" class="logo-img">
+                <span class="logo-text" style="padding-right: 20px;">MITS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-24 pb-12 px-4 md:px-8 lg:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+            <!-- Left Column: Lesson Navigation -->
+            <aside class="w-full lg:w-1/4 bg-white p-6 rounded-lg shadow-lg flex-shrink-0">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Advanced Python Concepts</h2>
+                <div class="progress-section mb-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Tutorial Progress</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="tutorial-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2"><span id="tutorial-progress-percentage">0%</span> Complete</p>
+                </div>
+                <nav>
+                    <ul id="lesson-list">
+                        <li><a href="#lesson1" class="lesson-link active" data-lesson-id="1">1. Decorators</a></li>
+                        <li><a href="#lesson2" class="lesson-link" data-lesson-id="2">2. Generators and Iterators</a></li>
+                        <li><a href="#lesson3" class="lesson-link" data-lesson-id="3">3. Context Managers</a></li>
+                        <li><a href="#lesson4" class="lesson-link" data-lesson-id="4">4. Metaclasses</a></li>
+                        <li><a href="#lesson5" class="lesson-link" data-lesson-id="5">5. Concurrency (Threads & Processes)</a></li>
+                        <li><a href="#lesson6" class="lesson-link" data-lesson-id="6">6. Async I/O (Asyncio)</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Right Column: Lesson Content and Code Editor -->
+            <section class="w-full lg:w-3/4 flex flex-col gap-8">
+                <!-- Lesson Content -->
+                <article id="lesson-content" class="bg-white p-8 rounded-lg shadow-lg">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-4" id="lesson-title">Decorators</h1>
+                    <div id="lesson-text" class="prose max-w-none text-gray-700">
+                        <p class="mb-4">Welcome to Advanced Python Concepts! In this first lesson, we will dive into decorators, a powerful and elegant feature in Python that allows you to modify or enhance functions and methods. Decorators are essentially functions that take another function as an argument and return a new function, typically extending the behavior of the input function without explicitly modifying it.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Understanding Decorators</h2>
+                        <p class="mb-4">A decorator wraps a function, modifying its behavior. The most common use cases include logging, timing, authentication, caching, and more. Python provides a convenient syntax using the `@` symbol to apply decorators.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Basic Decorator Example</h2>
+                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Something is happening before the function is called.")
+        func(*args, **kwargs)
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()</code></pre>
+                        <p>In this example, `my_decorator` is a function that takes another function `func` as an argument. It defines an inner function `wrapper` that adds behavior before and after calling the original `func`. The `@my_decorator` syntax is syntactic sugar for `say_hello = my_decorator(say_hello)`.</p>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button id="prev-lesson" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors hidden">Previous Lesson</button>
+                        <button id="next-lesson" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Next Lesson</button>
+                    </div>
+                </article>
+
+                <!-- Code Editor -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Interactive Code Editor</h3>
+                    <div id="editor" class="w-full h-80 border border-gray-300 rounded-lg"></div>
+                    <div class="flex justify-end mt-4 space-x-3">
+                        <button id="run-code" class="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            <i class="fas fa-play mr-2"></i>Run Code
+                        </button>
+                        <button id="reset-code" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                            <i class="fas fa-redo mr-2"></i>Reset
+                        </button>
+                    </div>
+                    <div id="output" class="bg-gray-800 text-white p-4 rounded-lg mt-4 text-sm font-mono whitespace-pre-wrap"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-200">MITS</h3>
+                    <p class="text-blue-100">Empowering students through education and real-world projects.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-blue-100 hover:text-white">About Us</a></li>
+                        <li><a href="tutorials.html" class="text-blue-100 hover:text-white">Tutorials</a></li>
+                        <li><a href="projects.html" class="text-blue-100 hover:text-white">Projects</a></li>
+                        <li><a href="contact.html" class="text-blue-100 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-blue-100 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-blue-200">Contact</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mits.edu</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Education St, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 MITS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.49.0/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+            let editor = monaco.editor.create(document.getElementById('editor'), {
+                value: 'def my_decorator(func):\n    def wrapper(*args, **kwargs):\n        print("Something is happening before the function is called.")\n        func(*args, **kwargs)\n        print("Something is happening after the function is called.")\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print("Hello!")\n\nsay_hello()',
+                language: 'python',
+                theme: 'vs-dark',
+                minimap: { enabled: false }
+            });
+
+            const outputDiv = document.getElementById('output');
+            const runButton = document.getElementById('run-code');
+            const resetButton = document.getElementById('reset-code');
+
+            // Dummy run functionality - in a real app, this would send code to a server
+            runButton.addEventListener('click', () => {
+                const code = editor.getValue();
+                outputDiv.textContent = `Running code:\n${code}\n\n(This is a simulated output. In a real application, this would execute on a server and return actual results.)`;
+            });
+
+            resetButton.addEventListener('click', () => {
+                editor.setValue('def my_decorator(func):\n    def wrapper(*args, **kwargs):\n        print("Something is happening before the function is called.")\n        func(*args, **kwargs)\n        print("Something is happening after the function is called.")\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print("Hello!")\n\nsay_hello()');
+                outputDiv.textContent = '';
+            });
+
+
+            // Lesson Content and Navigation
+            const lessons = [
+                {
+                    id: 1,
+                    title: 'Decorators',
+                    content: `<p class="mb-4">Welcome to Advanced Python Concepts! In this first lesson, we will dive into decorators, a powerful and elegant feature in Python that allows you to modify or enhance functions and methods. Decorators are essentially functions that take another function as an argument and return a new function, typically extending the behavior of the input function without explicitly modifying it.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Understanding Decorators</h2>
+                        <p class="mb-4">A decorator wraps a function, modifying its behavior. The most common use cases include logging, timing, authentication, caching, and more. Python provides a convenient syntax using the @ symbol to apply decorators.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Basic Decorator Example</h2>
+                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>def my_decorator(func):\n    def wrapper(*args, **kwargs):\n        print("Something is happening before the function is called.")\n        func(*args, **kwargs)\n        print("Something is happening after the function is called.")\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print("Hello!")\n\nsay_hello()</code></pre>\n                        <p>In this example, \`my_decorator\` is a function that takes another function \`func\` as an argument. It defines an inner function \`wrapper\` that adds behavior before and after calling the original \`func\`. The \`@my_decorator\` syntax is syntactic sugar for \`say_hello = my_decorator(say_hello)\`.</p>`,
+                    code: 'def my_decorator(func):\n    def wrapper(*args, **kwargs):\n        print("Something is happening before the function is called.")\n        func(*args, **kwargs)\n        print("Something is happening after the function is called.")\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print("Hello!")\n\nsay_hello()'
+                },
+                {
+                    id: 2,
+                    title: 'Generators and Iterators',
+                    content: `<p class="mb-4">Generators and iterators are fundamental concepts in Python for efficient memory management when dealing with large sequences of data. An iterator is an object that can be iterated upon, meaning that you can traverse through all the values. A generator is a simple way of creating iterators.</p>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Iterators</h2>\n                        <p class="mb-4">An object is called iterable if we can get an iterator from it. Most built-in containers in Python like list, tuple, string are iterables. The \`iter()\` function returns an iterator from an iterable.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>my_list = [1, 2, 3]\nmy_iterator = iter(my_list)\nprint(next(my_iterator)) # Output: 1\nprint(next(my_iterator)) # Output: 2</code></pre>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Generators</h2>\n                        <p>Generators are functions that return an iterator. They are written like normal functions but use the \`yield\` statement instead of \`return\` to produce a sequence of results. Each time \`yield\` is encountered, the function\\\'s state is frozen, and execution resumes from that point when \`next()\` is called again.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>def my_generator():\n    n = 1\n    print(\'This is printed first\')\n    yield n\n\n    n += 1\n    print(\'This is printed second\')\n    yield n\n\n    n += 1\n    print(\'This is printed at last\')\n    yield n\n\na = my_generator()\nprint(next(a))\nprint(next(a))</code></pre>\n                        <p>Generators are memory-efficient as they produce items one by one, only when requested.</p>`,
+                    code: 'def my_generator():\n    n = 1\n    print(\'This is printed first\')\n    yield n\n\n    n += 1\n    print(\'This is printed second\')\n    yield n\n\n    n += 1\n    print(\'This is printed at last\')\n    yield n\n\na = my_generator()\nprint(next(a))\nprint(next(a))'
+                },
+                {
+                    id: 3,
+                    title: 'Context Managers',
+                    content: `<p class="mb-4">Context managers in Python allow you to allocate and release resources precisely. The most common example is the \`with\` statement when dealing with file I/O, ensuring that a file is properly closed after its suite finishes, even if errors occur.</p>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">The 'with' Statement</h2>\n                        <p class="mb-4">The \`with\` statement simplifies resource management by abstracting setup and teardown operations. Objects that support the context management protocol define \`__enter__\` and \`__exit__\` methods.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>with open('example.txt', 'w') as f:\n    f.write('Hello, world!')\n# The file is automatically closed here</code></pre>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Creating Custom Context Managers</h2>\n                        <p>You can create your own context managers by defining a class with \`__enter__\` and \`__exit__\` methods, or by using the \`@contextlib.contextmanager\` decorator with a generator function.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>from contextlib import contextmanager\n\n@contextmanager\ndef managed_resource(*args, **kwargs):\n    # Setup code\n    print("Entering context...")\n    yield "resource" # This is the value \'as resource\' will get\n    # Teardown code\n    print("Exiting context...")\n\nwith managed_resource() as resource:\n    print(f"Using {resource}")</code></pre>`,
+                    code: 'from contextlib import contextmanager\n\n@contextmanager\ndef managed_resource(*args, **kwargs):\n    # Setup code\n    print("Entering context...")\n    yield "resource" # This is the value \'as resource\' will get\n    # Teardown code\n    print("Exiting context...")\n\nwith managed_resource() as resource:\n    print(f"Using {resource}")'
+                },
+                {
+                    id: 4,
+                    title: 'Metaclasses',
+                    content: `<p class="mb-4">Metaclasses are a more advanced topic in Python and are often referred to as "class factories." In Python, a class itself is an object, and just as an object is an instance of a class, a class is an instance of a metaclass. The default metaclass in Python is \`type\`.</p>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">What are Metaclasses?</h2>\n                        <p class="mb-4">When you define a class, Python uses a metaclass to create that class object. Metaclasses allow you to customize class creation, defining behavior for classes themselves, not just their instances.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code># The standard way to create a class:\nclass MyClass:\n    pass\n\n# Is equivalent to:\nMyClass = type('MyClass', (), {}) # Name, bases, dict</code></pre>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Creating Custom Metaclasses</h2>\n                        <p>You define a custom metaclass by inheriting from \`type\` and overriding its methods, typically \`__new__\` or \`__init__\`.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>class SingletonMeta(type):\n    _instances = {}\n\n    def __call__(cls, *args, **kwargs):\n        if cls not in cls._instances:\n            cls._instances[cls] = super().__call__(*args, **kwargs)\n        return cls._instances[cls]\n\nclass Singleton(metaclass=SingletonMeta):\n    def __init__(self, value):\n        self.value = value\n\ns1 = Singleton(1)\ns2 = Singleton(2)\nprint(s1.value) # Output: 1\nprint(s2.value) # Output: 1 (s1 and s2 are the same instance)</code></pre>\n                        <p>Metaclasses are powerful but should be used sparingly, primarily for framework-level development.</p>`,
+                    code: 'class SingletonMeta(type):\n    _instances = {}\n\n    def __call__(cls, *args, **kwargs):\n        if cls not in cls._instances:\n            cls._instances[cls] = super().__call__(*args, **kwargs)\n        return cls._instances[cls]\n\nclass Singleton(metaclass=SingletonMeta):\n    def __init__(self, value):\n        self.value = value\n\ns1 = Singleton(1)\ns2 = Singleton(2)\nprint(s1.value) # Output: 1\nprint(s2.value) # Output: 1 (s1 and s2 are the same instance)'
+                },
+                {
+                    id: 5,
+                    title: 'Concurrency (Threads & Processes)',
+                    content: `<p class="mb-4">Concurrency allows multiple tasks to make progress simultaneously. Python supports concurrency through threading and multiprocessing modules. While both deal with parallel execution, they differ in how they achieve it and handle the Global Interpreter Lock (GIL).</p>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Threading</h2>\n                        <p class="mb-4">Threading involves running multiple threads within the same process. Threads share the same memory space, making data sharing easy but requiring careful synchronization to prevent race conditions. Due to Python\'s GIL, threads are best for I/O-bound tasks (e.g., network requests, file I/O) rather than CPU-bound tasks.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>import threading\nimport time\n\ndef task(name):\n    print(f"Thread {name}: Starting")\n    time.sleep(1)\n    print(f"Thread {name}: Finishing")\n\nt1 = threading.Thread(target=task, args=("One",))\nt2 = threading.Thread(target=task, args=("Two",))\n\nt1.start()\nt2.start()\n\nt1.join()\nt2.join()\nprint("All threads finished.")</code></pre>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Multiprocessing</h2>\n                        <p>Multiprocessing involves running multiple independent processes, each with its own Python interpreter and memory space. This bypasses the GIL, making it suitable for CPU-bound tasks. Communication between processes requires explicit mechanisms like queues or pipes.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>import multiprocessing\nimport time\n\ndef task_process(name):\n    print(f"Process {name}: Starting")\n    time.sleep(1)\n    print(f"Process {name}: Finishing")\n\np1 = multiprocessing.Process(target=task_process, args=("One",))\np2 = multiprocessing.Process(target=task_process, args=("Two",))\n\np1.start()\np2.start()\n\np1.join()\np2.join()\nprint("All processes finished.")</code></pre>\n                        <p>Choose threading for I/O-bound operations and multiprocessing for CPU-bound operations.</p>`,
+                    code: 'import multiprocessing\nimport time\n\ndef task_process(name):\n    print(f"Process {name}: Starting")\n    time.sleep(1)\n    print(f"Process {name}: Finishing")\n\np1 = multiprocessing.Process(target=task_process, args=("One",))\np2 = multiprocessing.Process(target=task_process, args=("Two",))\n\np1.start()\np2.start()\n\np1.join()\np2.join()\nprint("All processes finished.")'
+                },
+                {
+                    id: 6,
+                    title: 'Async I/O (Asyncio)',
+                    content: `<p class="mb-4">Asyncio is a Python library to write concurrent code using the async/await syntax. It\'s designed for handling many concurrent I/O-bound operations efficiently using a single thread, avoiding the overhead of multiple threads or processes.</p>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Async/Await Syntax</h2>\n                        <p class="mb-4">Asyncio works with coroutines, which are special functions defined with \`async def\`. You use \`await\` to pause the execution of a coroutine until another awaitable completes, allowing the event loop to run other tasks.</p>\n                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm mb-4"><code>import asyncio\nimport time\n\nasync def fetch_data(delay, data):\n    print(f"Fetching {data}...")\n    await asyncio.sleep(delay) # Simulate I/O operation\n    print(f"Finished fetching {data}")\n    return data\n\nasync def main():\n    start_time = time.time()\n    task1 = fetch_data(2, "Data A")\n    task2 = fetch_data(1, "Data B")\n\n    results = await asyncio.gather(task1, task2)\n    print(f"Results: {results}")\n    end_time = time.time()\n    print(f"Total time: {end_time - start_time:.2f} seconds")\n\nif __name__ == "__main__":\n    asyncio.run(main())</code></pre>\n                        <h2 class="text-2xl font-semibold text-gray-800 mb-3">Event Loop</h2>\n                        <p>At the heart of Asyncio is the event loop, which manages and executes coroutines. It schedules tasks, runs them until they hit an \`await\` expression, then switches to another task while the first one waits for an I/O operation to complete.</p>\n                        <p>Asyncio is ideal for web scraping, network services, and other applications where you have many tasks waiting on external resources.</p>`,
+                    code: 'import asyncio\nimport time\n\nasync def fetch_data(delay, data):\n    print(f"Fetching {data}...")\n    await asyncio.sleep(delay) # Simulate I/O operation\n    print(f"Finished fetching {data}")\n    return data\n\nasync def main():\n    start_time = time.time()\n    task1 = fetch_data(2, "Data A")\n    task2 = fetch_data(1, "Data B")\n\n    results = await asyncio.gather(task1, task2)\n    print(f"Results: {results}")\n    end_time = time.time()\n    print(f"Total time: {end_time - start_time:.2f} seconds")\n\nif __name__ == "__main__":\n    asyncio.run(main())'
+                }
+            ];
+
+            const lessonTitleElem = document.getElementById('lesson-title');
+            const lessonTextElem = document.getElementById('lesson-text');
+            const lessonListElem = document.getElementById('lesson-list');
+            const prevLessonBtn = document.getElementById('prev-lesson');
+            const nextLessonBtn = document.getElementById('next-lesson');
+            const tutorialProgressFill = document.getElementById('tutorial-progress-fill');
+            const tutorialProgressPercentage = document.getElementById('tutorial-progress-percentage');
+
+            let currentLessonIndex = 0;
+
+            function loadLesson(index) {
+                const lesson = lessons[index];
+                if (lesson) {
+                    lessonTitleElem.textContent = lesson.title;
+                    lessonTextElem.innerHTML = lesson.content;
+                    editor.setValue(lesson.code);
+                    editor.setOption("readOnly", false); // Enable editing
+
+                    // Update active link in sidebar
+                    Array.from(lessonListElem.children).forEach((li, i) => {
+                        const link = li.querySelector('.lesson-link');
+                        if (link) {
+                            if (i === index) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        }
+                    });
+
+                    // Update navigation buttons
+                    prevLessonBtn.classList.toggle('hidden', index === 0);
+                    nextLessonBtn.classList.toggle('hidden', index === lessons.length - 1);
+
+                    // Update progress bar
+                    const progress = ((index + 1) / lessons.length) * 100;
+                    tutorialProgressFill.style.width = `${progress}%`;
+                    tutorialProgressPercentage.textContent = `${Math.round(progress)}%`;
+
+                    // Scroll to top of lesson content
+                    lessonContent.scrollTop = 0;
+                }
+            }
+
+            prevLessonBtn.addEventListener('click', () => {
+                if (currentLessonIndex > 0) {
+                    currentLessonIndex--;
+                    loadLesson(currentLessonIndex);
+                }
+            });
+
+            nextLessonBtn.addEventListener('click', () => {
+                if (currentLessonIndex < lessons.length - 1) {
+                    currentLessonIndex++;
+                    loadLesson(currentLessonIndex);
+                }
+            });
+
+            // Handle sidebar lesson link clicks
+            lessonListElem.addEventListener('click', (e) => {
+                if (e.target.classList.contains('lesson-link')) {
+                    e.preventDefault();
+                    const lessonId = parseInt(e.target.dataset.lessonId);
+                    currentLessonIndex = lessons.findIndex(lesson => lesson.id === lessonId);
+                    loadLesson(currentLessonIndex);
+                }
+            });
+
+            // Load the first lesson on page load
+            loadLesson(currentLessonIndex);
+        });
+    </script>
+</body>
+</html> 
